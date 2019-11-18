@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="24" passed="24">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="384" started-at="2019-09-18T00:07:34Z" finished-at="2019-09-18T00:07:34Z">
+    <groups>
+      <group name="TestConductor">
+        <method signature="PruebasConMocks.testAgregarConductorFechasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorFechasInconsistentes" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarConductorFechasValidas()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorFechasValidas" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarConductorNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+      </group> <!-- TestConductor -->
+      <group name="TestBus">
+        <method signature="PruebasConMocks.testAgregarBusCapacidadInvalida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusCapacidadInvalida" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarBusCapacidadValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusCapacidadValida" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarBusNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarBusTipoInvalido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusTipoInvalido" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarBusTipoValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusTipoValido" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+      </group> <!-- TestBus -->
+      <group name="TestServicio">
+        <method signature="PruebasConMocks.testAgregarServicioBusNoRegistrado()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioBusNoRegistrado" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioBusNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioBusNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioConductorNoRegistrado()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioConductorNoRegistrado" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioConductorNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioConductorNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioFechasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioFechasInconsistentes" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioFechasValidas()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioFechasValidas" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioRutaNoRegistrada()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioRutaNoRegistrada" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicioRutaNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioRutaNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarServicio_BCR_Validos()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicio_BCR_Validos" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+      </group> <!-- TestServicio -->
+      <group name="TestRuta">
+        <method signature="PruebasConMocks.testAgregarRutaDiaFinValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiaFinValido" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaDiaInicioValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiaInicioValido" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaDiasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiasInconsistentes" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaHoraFinValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHoraFinValida" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaHoraInicioValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHoraInicioValida" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaHorasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHorasInconsistentes" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+        <method signature="PruebasConMocks.testAgregarRutaNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaNull" class="co.edu.icesi.miniproyecto.test.PruebasConMocks"/>
+      </group> <!-- TestRuta -->
+    </groups>
+    <test name="Default test" duration-ms="384" started-at="2019-09-18T00:07:34Z" finished-at="2019-09-18T00:07:34Z">
+      <class name="co.edu.icesi.miniproyecto.test.PruebasConMocks">
+        <test-method status="PASS" signature="agregarDatos()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="agregarDatos" is-config="true" duration-ms="213" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- agregarDatos -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarBusCapacidadInvalida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusCapacidadInvalida" duration-ms="10" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarBusCapacidadInvalida -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarBusCapacidadValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusCapacidadValida" duration-ms="17" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarBusCapacidadValida -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarBusNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusNull" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarBusNull -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="7" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarBusTipoInvalido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusTipoInvalido" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarBusTipoInvalido -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarBusTipoValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarBusTipoValido" duration-ms="4" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarBusTipoValido -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarConductorFechasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorFechasInconsistentes" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarConductorFechasInconsistentes -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="5" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarConductorFechasValidas()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorFechasValidas" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarConductorFechasValidas -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarConductorNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarConductorNull" duration-ms="4" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarConductorNull -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaDiaFinValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiaFinValido" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaDiaFinValido -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaDiaInicioValido()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiaInicioValido" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaDiaInicioValido -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaDiasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaDiasInconsistentes" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaDiasInconsistentes -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaHoraFinValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHoraFinValida" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaHoraFinValida -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaHoraInicioValida()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHoraInicioValida" duration-ms="3" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaHoraInicioValida -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaHorasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaHorasInconsistentes" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaHorasInconsistentes -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarRutaNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarRutaNull" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarRutaNull -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioBusNoRegistrado()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioBusNoRegistrado" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioBusNoRegistrado -->
+        <test-method status="PASS" signature="testAgregarServicioBusNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioBusNull" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioBusNull -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioConductorNoRegistrado()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioConductorNoRegistrado" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioConductorNoRegistrado -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioConductorNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioConductorNull" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioConductorNull -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioFechasInconsistentes()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioFechasInconsistentes" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioFechasInconsistentes -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioFechasValidas()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioFechasValidas" duration-ms="3" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioFechasValidas -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioRutaNoRegistrada()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioRutaNoRegistrada" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioRutaNoRegistrada -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="1" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="iniciarMocks()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="iniciarMocks" is-config="true" duration-ms="6" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- iniciarMocks -->
+        <test-method status="PASS" signature="testAgregarServicioRutaNull()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicioRutaNull" duration-ms="0" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicioRutaNull -->
+        <test-method status="PASS" signature="testAgregarServicio_BCR_Validos()[pri:0, instance:co.edu.icesi.miniproyecto.test.PruebasConMocks@464bee09]" name="testAgregarServicio_BCR_Validos" duration-ms="2" started-at="2019-09-17T19:07:34Z" finished-at="2019-09-17T19:07:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAgregarServicio_BCR_Validos -->
+      </class> <!-- co.edu.icesi.miniproyecto.test.PruebasConMocks -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

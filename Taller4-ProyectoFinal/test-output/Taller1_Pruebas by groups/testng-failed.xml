@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Taller1_Pruebas by groups]">
+  <test name="GRP-TestBus(failed)">
+    <groups>
+      <run>
+        <include name="TestBus"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="co.edu.icesi.miniproyecto.test.TestClass">
+        <methods>
+          <include name="testAgregarBusCapacidadInvalida"/>
+          <include name="testAgregarBusCapacidadValida"/>
+          <include name="testAgregarBusNull"/>
+          <include name="testAgregarBusTipoValido"/>
+          <include name="testAgregarBusTipoInvalido"/>
+        </methods>
+      </class> <!-- co.edu.icesi.miniproyecto.test.TestClass -->
+    </classes>
+  </test> <!-- GRP-TestBus(failed) -->
+</suite> <!-- Failed suite [Taller1_Pruebas by groups] -->

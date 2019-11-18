@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-passed">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>C:\Users\jagn1\AppData\Local\Temp\testng-eclipse--1463297888\testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>4 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">24 methods,   24 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarBusCapacidadInvalida">testAgregarBusCapacidadInvalida</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarBusCapacidadValida">testAgregarBusCapacidadValida</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarBusNull">testAgregarBusNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarBusTipoInvalido">testAgregarBusTipoInvalido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarBusTipoValido">testAgregarBusTipoValido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarConductorFechasInconsistentes">testAgregarConductorFechasInconsistentes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarConductorFechasValidas">testAgregarConductorFechasValidas</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarConductorNull">testAgregarConductorNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaDiaFinValido">testAgregarRutaDiaFinValido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaDiaInicioValido">testAgregarRutaDiaInicioValido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaDiasInconsistentes">testAgregarRutaDiasInconsistentes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaHoraFinValida">testAgregarRutaHoraFinValida</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaHoraInicioValida">testAgregarRutaHoraInicioValida</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaHorasInconsistentes">testAgregarRutaHorasInconsistentes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarRutaNull">testAgregarRutaNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioBusNoRegistrado">testAgregarServicioBusNoRegistrado</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioBusNull">testAgregarServicioBusNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioConductorNoRegistrado">testAgregarServicioConductorNoRegistrado</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioConductorNull">testAgregarServicioConductorNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioFechasInconsistentes">testAgregarServicioFechasInconsistentes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioFechasValidas">testAgregarServicioFechasValidas</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioRutaNoRegistrada">testAgregarServicioRutaNoRegistrada</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicioRutaNull">testAgregarServicioRutaNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="co.edu.icesi.miniproyecto.test.PruebasConMocks" hash-for-method="testAgregarServicio_BCR_Validos">testAgregarServicio_BCR_Validos</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">co.edu.icesi.miniproyecto.test.PruebasConMocks</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarBusCapacidadInvalida">
+                  </a> <!-- testAgregarBusCapacidadInvalida -->
+                  <span class="method-name">testAgregarBusCapacidadInvalida</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarBusCapacidadValida">
+                  </a> <!-- testAgregarBusCapacidadValida -->
+                  <span class="method-name">testAgregarBusCapacidadValida</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarBusNull">
+                  </a> <!-- testAgregarBusNull -->
+                  <span class="method-name">testAgregarBusNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarBusTipoInvalido">
+                  </a> <!-- testAgregarBusTipoInvalido -->
+                  <span class="method-name">testAgregarBusTipoInvalido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarBusTipoValido">
+                  </a> <!-- testAgregarBusTipoValido -->
+                  <span class="method-name">testAgregarBusTipoValido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarConductorFechasInconsistentes">
+                  </a> <!-- testAgregarConductorFechasInconsistentes -->
+                  <span class="method-name">testAgregarConductorFechasInconsistentes</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarConductorFechasValidas">
+                  </a> <!-- testAgregarConductorFechasValidas -->
+                  <span class="method-name">testAgregarConductorFechasValidas</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarConductorNull">
+                  </a> <!-- testAgregarConductorNull -->
+                  <span class="method-name">testAgregarConductorNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaDiaFinValido">
+                  </a> <!-- testAgregarRutaDiaFinValido -->
+                  <span class="method-name">testAgregarRutaDiaFinValido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaDiaInicioValido">
+                  </a> <!-- testAgregarRutaDiaInicioValido -->
+                  <span class="method-name">testAgregarRutaDiaInicioValido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaDiasInconsistentes">
+                  </a> <!-- testAgregarRutaDiasInconsistentes -->
+                  <span class="method-name">testAgregarRutaDiasInconsistentes</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaHoraFinValida">
+                  </a> <!-- testAgregarRutaHoraFinValida -->
+                  <span class="method-name">testAgregarRutaHoraFinValida</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaHoraInicioValida">
+                  </a> <!-- testAgregarRutaHoraInicioValida -->
+                  <span class="method-name">testAgregarRutaHoraInicioValida</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaHorasInconsistentes">
+                  </a> <!-- testAgregarRutaHorasInconsistentes -->
+                  <span class="method-name">testAgregarRutaHorasInconsistentes</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarRutaNull">
+                  </a> <!-- testAgregarRutaNull -->
+                  <span class="method-name">testAgregarRutaNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioBusNoRegistrado">
+                  </a> <!-- testAgregarServicioBusNoRegistrado -->
+                  <span class="method-name">testAgregarServicioBusNoRegistrado</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioBusNull">
+                  </a> <!-- testAgregarServicioBusNull -->
+                  <span class="method-name">testAgregarServicioBusNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioConductorNoRegistrado">
+                  </a> <!-- testAgregarServicioConductorNoRegistrado -->
+                  <span class="method-name">testAgregarServicioConductorNoRegistrado</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioConductorNull">
+                  </a> <!-- testAgregarServicioConductorNull -->
+                  <span class="method-name">testAgregarServicioConductorNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioFechasInconsistentes">
+                  </a> <!-- testAgregarServicioFechasInconsistentes -->
+                  <span class="method-name">testAgregarServicioFechasInconsistentes</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioFechasValidas">
+                  </a> <!-- testAgregarServicioFechasValidas -->
+                  <span class="method-name">testAgregarServicioFechasValidas</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioRutaNoRegistrada">
+                  </a> <!-- testAgregarServicioRutaNoRegistrada -->
+                  <span class="method-name">testAgregarServicioRutaNoRegistrada</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicioRutaNull">
+                  </a> <!-- testAgregarServicioRutaNull -->
+                  <span class="method-name">testAgregarServicioRutaNull</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAgregarServicio_BCR_Validos">
+                  </a> <!-- testAgregarServicio_BCR_Validos -->
+                  <span class="method-name">testAgregarServicio_BCR_Validos</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\jagn1\AppData\Local\Temp\testng-eclipse--1463297888\testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;co.edu.icesi.miniproyecto.test.PruebasConMocks&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">TestBus</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarBusCapacidadInvalida</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarBusCapacidadValida</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarBusNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarBusTipoInvalido</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarBusTipoValido</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">TestConductor</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarConductorFechasInconsistentes</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarConductorFechasValidas</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarConductorNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">TestRuta</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaDiaFinValido</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaDiaInicioValido</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaDiasInconsistentes</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaHoraFinValida</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaHoraInicioValida</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaHorasInconsistentes</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarRutaNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">TestServicio</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioBusNoRegistrado</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioBusNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioConductorNoRegistrado</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioConductorNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioFechasInconsistentes</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioFechasValidas</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioRutaNoRegistrada</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicioRutaNull</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testAgregarServicio_BCR_Validos</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(24);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testAgregarBusCapacidadValida')
+data.setCell(0, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(0, 3, 17);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testAgregarBusCapacidadInvalida')
+data.setCell(1, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(1, 3, 10);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testAgregarConductorNull')
+data.setCell(2, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(2, 3, 4);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testAgregarBusTipoValido')
+data.setCell(3, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(3, 3, 4);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testAgregarRutaHoraInicioValida')
+data.setCell(4, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(4, 3, 3);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testAgregarServicioFechasValidas')
+data.setCell(5, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(5, 3, 3);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testAgregarConductorFechasValidas')
+data.setCell(6, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(6, 3, 2);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testAgregarServicioRutaNoRegistrada')
+data.setCell(7, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(7, 3, 2);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testAgregarRutaDiaFinValido')
+data.setCell(8, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(8, 3, 2);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testAgregarServicio_BCR_Validos')
+data.setCell(9, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(9, 3, 2);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testAgregarServicioBusNull')
+data.setCell(10, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(10, 3, 2);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testAgregarServicioFechasInconsistentes')
+data.setCell(11, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(11, 3, 2);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testAgregarRutaHoraFinValida')
+data.setCell(12, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(12, 3, 2);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testAgregarServicioBusNoRegistrado')
+data.setCell(13, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(13, 3, 2);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testAgregarServicioConductorNoRegistrado')
+data.setCell(14, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(14, 3, 2);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testAgregarBusTipoInvalido')
+data.setCell(15, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(15, 3, 1);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testAgregarRutaHorasInconsistentes')
+data.setCell(16, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(16, 3, 1);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testAgregarBusNull')
+data.setCell(17, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(17, 3, 1);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testAgregarRutaDiaInicioValido')
+data.setCell(18, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(18, 3, 1);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testAgregarRutaNull')
+data.setCell(19, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(19, 3, 1);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testAgregarConductorFechasInconsistentes')
+data.setCell(20, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(20, 3, 1);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testAgregarServicioConductorNull')
+data.setCell(21, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(21, 3, 0);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testAgregarRutaDiasInconsistentes')
+data.setCell(22, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(22, 3, 0);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testAgregarServicioRutaNull')
+data.setCell(23, 2, 'co.edu.icesi.miniproyecto.test.PruebasConMocks')
+data.setCell(23, 3, 0);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 65 ms</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">co.edu.icesi.miniproyecto.test.PruebasConMocks</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">agregarDatos</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">226 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarBusCapacidadInvalida</span>
+                <span class="method-start">228 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">243 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarBusCapacidadValida</span>
+                <span class="method-start">244 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">270 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarBusNull</span>
+                <span class="method-start">271 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">274 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarBusTipoInvalido</span>
+                <span class="method-start">281 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">284 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarBusTipoValido</span>
+                <span class="method-start">285 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">290 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarConductorFechasInconsistentes</span>
+                <span class="method-start">292 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">293 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarConductorFechasValidas</span>
+                <span class="method-start">298 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">301 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarConductorNull</span>
+                <span class="method-start">301 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">306 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaDiaFinValido</span>
+                <span class="method-start">307 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">310 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaDiaInicioValido</span>
+                <span class="method-start">311 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">315 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaDiasInconsistentes</span>
+                <span class="method-start">316 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">317 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaHoraFinValida</span>
+                <span class="method-start">318 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">325 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaHoraInicioValida</span>
+                <span class="method-start">326 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">331 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaHorasInconsistentes</span>
+                <span class="method-start">332 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">335 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarRutaNull</span>
+                <span class="method-start">337 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">339 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioBusNoRegistrado</span>
+                <span class="method-start">340 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">344 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioBusNull</span>
+                <span class="method-start">344 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">347 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioConductorNoRegistrado</span>
+                <span class="method-start">348 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">351 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioConductorNull</span>
+                <span class="method-start">352 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">354 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioFechasInconsistentes</span>
+                <span class="method-start">355 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">358 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioFechasValidas</span>
+                <span class="method-start">359 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">363 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioRutaNoRegistrada</span>
+                <span class="method-start">364 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">367 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicioRutaNull</span>
+                <span class="method-start">368 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">iniciarMocks</span>
+                <span class="method-start">368 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testAgregarServicio_BCR_Validos</span>
+                <span class="method-start">374 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

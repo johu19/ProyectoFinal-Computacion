@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Custom Logout Page</title>
+</head>
+<body>
+<div>
+    <form name="f" th:action="@{/login}" method="post">
+        <fieldset>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn">Log out</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

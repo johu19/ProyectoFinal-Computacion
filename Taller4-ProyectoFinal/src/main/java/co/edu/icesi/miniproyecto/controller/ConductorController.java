@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.icesi.miniproyecto.clienteRest.ConductoreClienteRest;
 import co.edu.icesi.miniproyecto.exceptions.ConductorCedulaRepetidaException;
 import co.edu.icesi.miniproyecto.exceptions.ConductorFechasException;
 import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
@@ -31,15 +32,19 @@ public class ConductorController {
 	private ConductorService condServ;
 	
 	
+	private ConductoreClienteRest delegado;
+	
+	
 	@Autowired
-	public ConductorController(ConductorService c) {
+	public ConductorController(ConductorService c, ConductoreClienteRest d) {
 		condServ=c;
+		delegado=d;
 	}
 	
 	
 	@GetMapping("/conductores/")
 	public String indexCond(Model model) {
-		model.addAttribute("conductores",condServ.findAllConductores());
+		model.addAttribute("conductores",delegado.findAllConductore());
 		return "conductores/index";
 	}
 	
@@ -63,7 +68,7 @@ public class ConductorController {
 			} else {
 				try {
 				
-					condServ.agregarConductor(conductor);
+					delegado.agregarConductor(conductor);
 				} catch (Exception e) {
 					if(e.getClass().equals(ConductorFechasException.class)) {
 						return "conductores/error-fechas";

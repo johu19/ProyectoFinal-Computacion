@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
 import co.edu.icesi.miniproyecto.services.ConductorService;
 
-@Component
+@RestController
 public class ConductoreServicioRest {
 	
 	@Autowired
@@ -22,11 +24,13 @@ public class ConductoreServicioRest {
 	
 	
 	@PostMapping("/api/conductore/add")
-	public void agregarConductor(Tmio1Conductore cond) {
+	public Tmio1Conductore agregarConductor(@RequestBody Tmio1Conductore cond) {
 		try {
-			serv.agregarConductor(cond);
+			return serv.agregarConductor(cond);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 		
 	}

@@ -16,10 +16,7 @@ import co.edu.icesi.miniproyecto.servicioRest.BusServicioRest;
 @Component
 public class BusClienteRest {
 
-	public final static String REST_URI = "http://localhost8080/";
-
-	@Autowired
-	private BusServicioRest servRest;
+	public final static String REST_URI = "http://localhost:8080/";
 
 	private RestTemplate rest = new RestTemplate();
 
@@ -42,11 +39,42 @@ public class BusClienteRest {
 	}
 
 	public Iterable<Tmio1Bus> findAllBuses() {
-		return servRest.findAllBuses();
+		ResponseEntity<TransactionBody<Iterable<Tmio1Bus>>> response = null;
+		HttpEntity request = new HttpEntity(null);
+		try {
+			response = rest.exchange(REST_URI+"api/buses/findAll", HttpMethod.GET,request,
+					new ParameterizedTypeReference<TransactionBody<Iterable<Tmio1Bus>>>() {
+					});
+		} catch (HttpStatusCodeException e) {
+			int statusCode = e.getStatusCode().value();
+			System.out.println("ERROR: " + statusCode + " - " + e.getResponseBodyAsString());
+		}
+		if(response !=null) {
+			Iterable<Tmio1Bus> allBuses = response.getBody().getBody();
+			return allBuses;
+		}
+		
+		return null;
+		
 	}
 
 	public TipoBus[] obtenerTipos() {
-		return servRest.obtenerTipos();
+		ResponseEntity<TransactionBody<TipoBus[]>> response = null;
+		HttpEntity request = new HttpEntity(null);
+		try {
+			response = rest.exchange(REST_URI+"api/buses/findTipos", HttpMethod.GET,request,
+					new ParameterizedTypeReference<TransactionBody<TipoBus[]>>() {
+					});
+		} catch (HttpStatusCodeException e) {
+			int statusCode = e.getStatusCode().value();
+			System.out.println("ERROR: " + statusCode + " - " + e.getResponseBodyAsString());
+		}
+		if(response !=null) {
+			TipoBus[] allTipos = response.getBody().getBody();
+			return allTipos;
+		}
+		
+		return null;
 	}
 
 }

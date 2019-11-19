@@ -19,20 +19,23 @@ public class BusServicioRest {
 
 	@PostMapping("/api/buses/add")
 	public void agregarBus(Tmio1Bus bus) {
+		
+		System.out.println("LLEGA AL SERVICIO  -------->>>>>>>>>>>>>>>><<");
+		
 		try {
 			serv.agregarBus(bus);
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
 
-	@GetMapping("api/buses/findAll")
+	@GetMapping("/api/buses/findAll")
 	public Iterable<Tmio1Bus> findAllBuses() {
 		return serv.findAllBuses();
 	}
 	
-	@GetMapping("api/findTipos")
+	@GetMapping("/api/findTipos")
 	public TipoBus[] obtenerTipos() {
 		return serv.obtenerTipos();
 	}

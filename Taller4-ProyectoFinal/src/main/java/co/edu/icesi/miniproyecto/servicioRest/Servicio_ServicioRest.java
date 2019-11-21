@@ -40,7 +40,7 @@ public class Servicio_ServicioRest {
 	}
 	
 	
-	@GetMapping("api/servicios/findByDate")
+	@GetMapping("/api/servicios/findByDate")
 	public Iterable<Tmio1Servicio> findByDate(@RequestBody Date d){
 		return serv.findByDate(d);
 	}

@@ -1,32 +1,19 @@
 package co.edu.icesi.miniproyecto;
 
-import java.math.BigDecimal;
-import java.sql.Time;
-import java.time.LocalTime;
-import java.util.Date;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
-import co.edu.icesi.miniproyecto.model.Dia;
-import co.edu.icesi.miniproyecto.model.TipoBus;
 import co.edu.icesi.miniproyecto.model.TipoUsuario;
-import co.edu.icesi.miniproyecto.model.Tmio1Bus;
-import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
-import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 import co.edu.icesi.miniproyecto.model.Usuario;
 import co.edu.icesi.miniproyecto.repositories.BusesRepository;
 import co.edu.icesi.miniproyecto.repositories.ConductoresRepository;
 import co.edu.icesi.miniproyecto.repositories.RutasRepository;
 import co.edu.icesi.miniproyecto.repositories.UsuariosRepository;
-import co.edu.icesi.miniproyecto.security.SecurityConfig;
 
 @SpringBootApplication
 public class Taller3Application {

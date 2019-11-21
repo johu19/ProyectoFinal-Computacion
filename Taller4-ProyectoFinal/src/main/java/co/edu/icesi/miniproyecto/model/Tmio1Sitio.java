@@ -2,6 +2,8 @@ package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 import java.util.List;
 
 
@@ -13,15 +15,18 @@ import java.util.List;
 @Table(name="tmio1_sitios")
 @NamedQuery(name="Tmio1Sitio.findAll", query="SELECT t FROM Tmio1Sitio t")
 public class Tmio1Sitio implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@SequenceGenerator(name="TMIO1_SITIOS_ID_GENERATOR", sequenceName="TMIO1_SITIOS_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_SITIOS_ID_GENERATOR")
-	private long id;
+	private Integer id;
 
+	@NotBlank(message="Escriba una descripcion")
 	private String descripcion;
 
+	@NotBlank(message="Escriba una descripcion")
 	private String nombre;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
@@ -39,11 +44,11 @@ public class Tmio1Sitio implements Serializable {
 	public Tmio1Sitio() {
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

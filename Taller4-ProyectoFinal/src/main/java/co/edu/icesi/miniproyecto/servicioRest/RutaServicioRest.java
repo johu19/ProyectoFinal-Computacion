@@ -1,15 +1,19 @@
 package co.edu.icesi.miniproyecto.servicioRest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 import co.edu.icesi.miniproyecto.services.RutaService;
 
-@Component
+@RestController
 public class RutaServicioRest {
 	
+	@Autowired
 	private RutaService serv;
 	
 	@GetMapping("/api/rutas/findAll")
@@ -18,11 +22,12 @@ public class RutaServicioRest {
 	}
 	
 	@PostMapping("/api/rutas/add")
-	public void agregarRuta(Tmio1Ruta ruta) {
+	public Tmio1Ruta agregarRuta(@RequestBody Tmio1Ruta ruta) {
 		try {
-			serv.agregarRuta(ruta);
+			return serv.agregarRuta(ruta);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 	

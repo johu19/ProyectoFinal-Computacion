@@ -1,9 +1,12 @@
 package co.edu.icesi.miniproyecto.servicioRest;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
@@ -17,11 +20,12 @@ public class Servicio_ServicioRest {
 	private ServicioService serv;
 	
 	@PostMapping("/api/servicios/add")
-	public void agregarServicio(Tmio1Servicio servicio) {
+	public Tmio1Servicio agregarServicio(@RequestBody Tmio1Servicio servicio) {
 		try {
-			serv.agregarServicio(servicio);
+			return serv.agregarServicio(servicio);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -31,8 +35,14 @@ public class Servicio_ServicioRest {
 	}
 	
 	@DeleteMapping("/api/servicios/borrar")
-	public void borrarServicio(Tmio1ServicioPK id) {
+	public void borrarServicio(@RequestBody Tmio1ServicioPK id) {
 		serv.eliminarServicio(id);
+	}
+	
+	
+	@GetMapping("api/servicios/findByDate")
+	public Iterable<Tmio1Servicio> findByDate(@RequestBody Date d){
+		return serv.findByDate(d);
 	}
 
 }

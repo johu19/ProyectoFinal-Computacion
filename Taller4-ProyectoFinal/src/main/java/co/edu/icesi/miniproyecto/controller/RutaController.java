@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.icesi.miniproyecto.clienteRest.RutaClienteRest;
 import co.edu.icesi.miniproyecto.exceptions.RutaDiasException;
 import co.edu.icesi.miniproyecto.exceptions.RutaHorasException;
 import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
@@ -26,15 +27,18 @@ public class RutaController {
 	
 	private RutaService rutaServ;
 	
+	private RutaClienteRest delegado;
+	
 	@Autowired
-	public RutaController(RutaService r) {
+	public RutaController(RutaService r, RutaClienteRest d) {
 		rutaServ = r;
+		delegado=d;
 	}
 	
 	
 	@GetMapping("/rutas/")
 	public String indexRuta(Model model) {
-		model.addAttribute("rutas",rutaServ.findAllRutas());
+		model.addAttribute("rutas",delegado.findAllRutas());
 		return "rutas/index";
 	}
 	
@@ -55,7 +59,7 @@ public class RutaController {
 			} else {
 				try {
 				
-					rutaServ.agregarRuta(ruta);
+					delegado.agregarRuta(ruta);
 				} catch (Exception e) {
 					if(e.getClass().equals(RutaHorasException.class)) {
 						return "rutas/error-horas";

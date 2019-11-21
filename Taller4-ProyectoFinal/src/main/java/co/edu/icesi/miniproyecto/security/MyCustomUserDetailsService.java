@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
 import co.edu.icesi.miniproyecto.model.Usuario;
 import co.edu.icesi.miniproyecto.repositories.UsuariosRepository;
 
@@ -19,10 +20,13 @@ public class MyCustomUserDetailsService implements UserDetailsService {
 
 
 	private UsuariosRepository userRepository;
+	
+	private UsuarioClienteRest userRest;
 
 	@Autowired
-	public MyCustomUserDetailsService(UsuariosRepository userRepository) {
+	public MyCustomUserDetailsService(UsuariosRepository userRepository, UsuarioClienteRest usu) {
 		this.userRepository = userRepository;
+		userRest =usu;
 	}
 	
 	@Override
@@ -36,6 +40,15 @@ public class MyCustomUserDetailsService implements UserDetailsService {
 		} else {
 			throw new UsernameNotFoundException("User not found.");
 		}
+		
+//		if ( userRest.findById(username)!=null) {
+//			Usuario usuario = userRest.findById(username);
+//			User.UserBuilder builder = User.withUsername(username).password(usuario.getPassword())
+//					.roles(usuario.getTipo().toString());
+//			return builder.build();
+//		} else {
+//			throw new UsernameNotFoundException("User not found.");
+//		}
 		
 	}
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.clienteRest.TransactionBody;
@@ -20,22 +21,26 @@ public class BusServicioRest {
 	private BusService serv;
 
 	@PostMapping("/api/buses/add")
-	public Tmio1Bus agregarBus(@RequestBody TransactionBody<Tmio1Bus> tb) {
-		Tmio1Bus b = tb.getBody();
+	public Tmio1Bus agregarBus(@RequestBody Tmio1Bus b) {
 		try {
 			return serv.agregarBus(b);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 		
 	}
-
-//	@GetMapping("/api/buses/findAll")
-//	public TransactionBody<Iterable<Tmio1Bus>> findAllBuses() {
-//		TransactionBody<Iterable<Tmio1Bus>> tb = new TransactionBody<Iterable<Tmio1Bus>>();
-//		tb.setBody(serv.findAllBuses());
-//		return tb;
+	
+//	@RequestMapping(value = "/api/buses/add", method = RequestMethod.POST)
+//	public Tmio1Bus agregarBus(@RequestBody Tmio1Bus b) {
+//		try {
+//			return serv.agregarBus(b);
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return null;
+//		}	
 //	}
 	
 	@GetMapping("/api/buses/findAll")

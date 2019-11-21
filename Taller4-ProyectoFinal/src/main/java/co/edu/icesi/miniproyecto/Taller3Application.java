@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
+import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
 import co.edu.icesi.miniproyecto.model.Dia;
 import co.edu.icesi.miniproyecto.model.TipoBus;
 import co.edu.icesi.miniproyecto.model.TipoUsuario;
@@ -44,7 +45,8 @@ public class Taller3Application {
 	
 	
 	@Bean
-	public CommandLineRunner demo(UsuariosRepository repos, RutasRepository reposRuta, BusesRepository reposBus, ConductoresRepository reposCond) {
+	public CommandLineRunner demo(UsuariosRepository repos, RutasRepository reposRuta, BusesRepository reposBus, ConductoresRepository reposCond,
+			UsuarioClienteRest usuRest) {
 		
 		return (args) -> {
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -54,12 +56,14 @@ public class Taller3Application {
 			u1.setPassword(passwordEncoder.encode("123"));
 			u1.setTipo(TipoUsuario.Administrador);
 			repos.save(u1);
+//			usuRest.agregarUsuario(u1);
 			
 			Usuario u2 = new Usuario();
 			u2.setUsername("ope");
 			u2.setPassword(passwordEncoder.encode("123"));
 			u2.setTipo(TipoUsuario.Operador);
 			repos.save(u2);
+//			usuRest.agregarUsuario(u2);
 			
 			
 		};

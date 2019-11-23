@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import co.edu.icesi.miniproyecto.daos.Tmio1SitioDao;
 import co.edu.icesi.miniproyecto.model.Tmio1Sitio;
+import co.edu.icesi.miniproyecto.model.Tmio1SitiosRuta;
 
 @Service
 public class SitioService implements ISitioService{
@@ -34,16 +35,23 @@ public class SitioService implements ISitioService{
 
 	@Override
 	@Transactional
-	public Tmio1Sitio actualizarSitio(Integer id, String nombre, String desc) {
-		Tmio1Sitio si = consultarSitio(id);
-		repos.update(si);
-		return repos.findById(si.getId());
+	public Tmio1Sitio actualizarSitio(Tmio1Sitio sitio) {
+		
+		Tmio1Sitio si = consultarSitio(sitio.getId());
+		repos.delete(si);
+		Tmio1Sitio newSi = new Tmio1Sitio();
+		newSi.setNombre(sitio.getNombre());
+		newSi.setDescripcion(sitio.getDescripcion());
+		repos.save(newSi);
+		return newSi;
 	}
 
 	@Override
 	public Iterable<Tmio1Sitio> findAllSitios() {
 		return repos.findAll();
 	}
+	
+	
 	
 	
 

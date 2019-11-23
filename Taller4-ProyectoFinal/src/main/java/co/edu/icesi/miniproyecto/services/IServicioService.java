@@ -21,6 +21,7 @@ public Tmio1Servicio agregarServicio(Tmio1Servicio servicio) throws BusNullExcep
 	
 	public Tmio1Servicio consultarServicio(Tmio1ServicioPK id);
 	
-	public Tmio1Servicio actualizarServicio(Tmio1ServicioPK id, Tmio1Ruta ruta, Tmio1Conductore conductor, Tmio1Bus bus);
+	public Tmio1Servicio actualizarServicio(Tmio1Servicio serv)
+			throws BusNullException, ConductorNullException, RutaNullException, BusNoRegistradoException, RutaNoRegistradaException, ConductorNoRegistradoException, ServicioFechasException;
 
 }

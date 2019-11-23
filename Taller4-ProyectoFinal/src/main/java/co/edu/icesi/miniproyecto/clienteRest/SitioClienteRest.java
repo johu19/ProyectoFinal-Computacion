@@ -36,15 +36,19 @@ public class SitioClienteRest {
 	
 	
 	public void borrarSitio(Integer id) {
-		restTemplate.delete(REST_URI+"api/sitios/borrar/", id);
+		restTemplate.delete(REST_URI+"api/sitios/borrar", id);
 		
 	}
 	
-//	public Tmio1Sitio findById(){
-//		Tmio1Sitio sitio = restTemplate.getForObject(REST_URI+"api/sitios/findById", Tmio1Sitio.class);
-//		return sitio;
-//		
-//	}
+	public Tmio1Sitio actualizarSitio(Tmio1Sitio sitio) {
+		return restTemplate.patchForObject(REST_URI+"api/sitios/update", sitio, Tmio1Sitio.class);
+	}
+	
+	public Tmio1Sitio findById(){
+		Tmio1Sitio sitio = restTemplate.getForObject(REST_URI+"api/sitios/findById", Tmio1Sitio.class);
+		return sitio;
+		
+	}
 	
 
 }

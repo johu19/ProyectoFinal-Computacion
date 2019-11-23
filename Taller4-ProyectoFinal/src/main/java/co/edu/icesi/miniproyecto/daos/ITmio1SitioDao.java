@@ -11,6 +11,7 @@ public interface ITmio1SitioDao {
 	Tmio1Sitio findById(Integer id);
 	void update(Tmio1Sitio sitio);
 	List<Tmio1Sitio> findAll();
+	List<Tmio1Sitio> findByPlaneId(String planeId);
 	
 
 }

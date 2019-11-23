@@ -10,7 +10,7 @@ public interface ISitioService {
 	
 	public Tmio1Sitio consultarSitio(Integer id);
 	
-	public Tmio1Sitio actualizarSitio(Integer id, String nombre, String desc) ;
+	public Tmio1Sitio actualizarSitio(Tmio1Sitio sitio) ;
 	
 	
 	public Iterable<Tmio1Sitio> findAllSitios();

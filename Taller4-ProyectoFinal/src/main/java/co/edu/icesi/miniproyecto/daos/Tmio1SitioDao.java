@@ -45,6 +45,12 @@ public class Tmio1SitioDao implements ITmio1SitioDao {
 		String jpql = "SELECT a FROM Tmio1Sitio a";
 		return 	entityManager.createQuery(jpql).getResultList();
 	}
+
+	@Override
+	public List<Tmio1Sitio> findByPlaneId(String planeId) {
+		String jpql = "SELECT a FROM Tmio1SitiosRuta a WHERE a.planeID='"+planeId+"'";
+		return 	entityManager.createQuery(jpql).getResultList();
+	}
 	
 	
 	

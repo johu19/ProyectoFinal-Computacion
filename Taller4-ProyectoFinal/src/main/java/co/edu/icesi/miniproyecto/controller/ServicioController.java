@@ -155,23 +155,11 @@ public class ServicioController {
 				return "servs/update-serv";
 			} else
 				try {
-					Tmio1ServicioPK pk = new Tmio1ServicioPK();
-					pk.setCedulaConductor(tmio1Servicio.getTmio1Conductore().getCedula());
-					pk.setIdBus(tmio1Servicio.getTmio1Bus().getId());
-					pk.setIdRuta(tmio1Servicio.getTmio1Ruta().getId());
-					pk.setFechaInicio(new Date());
-					pk.setFechaFin(tmio1Servicio.getFechaServicio());
-					tmio1Servicio.setPlaneID(pk.getIdBus() + "_" + pk.getIdRuta() + "_" + pk.getCedulaConductor() + "_"
-							+ tmio1Servicio.getFechaServicio().toString());
 					
-					tmio1Servicio.setId(servicioServ.findByPlaneID(id).getId());
-					
-					servicioServ.eliminarServicio(tmio1Servicio.getId());
-					
-					tmio1Servicio.setId(pk);
-					servicioServ.agregarServicio(tmio1Servicio);
+					servicioServ.actualizarServicio(tmio1Servicio);
 					
 				} catch (Exception e) {
+					e.printStackTrace();
 					if(e.getClass().equals(ServicioFechasException.class)) {
 						
 						try {

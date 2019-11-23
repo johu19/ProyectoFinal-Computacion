@@ -27,18 +27,18 @@ public class RutaController {
 	
 	private RutaService rutaServ;
 	
-	private RutaClienteRest delegado;
+//	private RutaClienteRest delegado;
 	
 	@Autowired
 	public RutaController(RutaService r, RutaClienteRest d) {
 		rutaServ = r;
-		delegado=d;
+//		delegado=d;
 	}
 	
 	
 	@GetMapping("/rutas/")
 	public String indexRuta(Model model) {
-		model.addAttribute("rutas",delegado.findAllRutas());
+		model.addAttribute("rutas",rutaServ.findAllRutas());
 		return "rutas/index";
 	}
 	
@@ -59,7 +59,8 @@ public class RutaController {
 			} else {
 				try {
 				
-					delegado.agregarRuta(ruta);
+//					delegado.agregarRuta(ruta);
+					rutaServ.agregarRuta(ruta);
 				} catch (Exception e) {
 					if(e.getClass().equals(RutaHorasException.class)) {
 						return "rutas/error-horas";

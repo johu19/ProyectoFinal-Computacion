@@ -2,6 +2,7 @@ package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -19,25 +20,40 @@ public class Tmio1SitiosRuta implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1Ruta
 	@ManyToOne
+	@NotNull(message="Seleccione la ruta 1")
 	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
 	private Tmio1Ruta tmio1Ruta1;
 
 	//bi-directional many-to-one association to Tmio1Ruta
 	@ManyToOne
-	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
+	@NotNull(message="Seleccione la ruta 2")
+	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
 	private Tmio1Ruta tmio1Ruta2;
 
 	//bi-directional many-to-one association to Tmio1Sitio
 	@ManyToOne
+	@NotNull(message="Seleccione el sitio 1")
 	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Sitio tmio1Sitio1;
 
 	//bi-directional many-to-one association to Tmio1Sitio
 	@ManyToOne
+	@NotNull(message="Seleccione el sitio 2")
 	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Sitio tmio1Sitio2;
 
 	public Tmio1SitiosRuta() {
+	}
+	
+	@Column(name="plane_id")
+	private String planeID;
+	
+	
+	public String getPlaneID() {
+		return planeID;
+	}
+	public void setPlaneID(String planeID) {
+		this.planeID = planeID;
 	}
 
 	public Tmio1SitiosRutaPK getId() {

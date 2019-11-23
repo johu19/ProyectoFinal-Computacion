@@ -18,6 +18,7 @@ import co.edu.icesi.miniproyecto.clienteRest.SitioClienteRest;
 import co.edu.icesi.miniproyecto.exceptions.ServicioFechasException;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
 import co.edu.icesi.miniproyecto.model.Tmio1Sitio;
+import co.edu.icesi.miniproyecto.model.Tmio1SitiosRutaPK;
 import co.edu.icesi.miniproyecto.services.SitioService;
 
 @Controller
@@ -53,6 +54,7 @@ public class SitioController {
 				return "sitios/add-sitio";
 			} else {
 				try {
+					
 					serv.agregarSitio(sitio);
 //					delegado.agregarSitio(sitio);
 						
@@ -94,7 +96,7 @@ public class SitioController {
 				return "sitios/update-serv";
 			} else
 				try {
-					serv.actualizarSitio(sitio.getId(), sitio.getNombre(), sitio.getDescripcion());
+					serv.actualizarSitio(sitio);
 					
 				} catch (Exception e) {
 					

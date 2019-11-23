@@ -98,7 +98,7 @@ public class ServicioClienteRest {
 	
 	
 	public void borrarServicio(Tmio1ServicioPK pk) {
-		restTemplate.delete(REST_URI+"api/servicios/borrar/", pk);
+		restTemplate.delete(REST_URI+"api/servicios/borrar", pk);
 		
 	}
 	
@@ -114,5 +114,14 @@ public class ServicioClienteRest {
 			return null;
 		}
 	}
+	
+	
+	public Tmio1Servicio actualizarServicio(Tmio1Servicio servicio) {
+		return restTemplate.patchForObject(REST_URI+"api/servicios/update", servicio, Tmio1Servicio.class);
+	}
+	
+	
+	
+	
 	
 }

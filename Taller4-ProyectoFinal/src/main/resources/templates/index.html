@@ -27,13 +27,7 @@
 						<a href="/buses/"><i class="fas fa-calendar ml-2"></i> Ir a Buses</a>
 					</p>
 				</div>
-				<div sec:authorize="hasRole('Administrador') OR hasRole('Operador')">
-					<p>
-
-
-						<a href="/servs/"><i class="fas fa-calendar ml-2"></i> Ir a Servicios</a>
-					</p>
-				</div>
+				
 				<div sec:authorize="hasRole('Administrador')">
 					<p>
 						<a href="/conductores/"><i class="fas fa-calendar ml-2"></i> Ir a Conductores</a>
@@ -53,6 +47,21 @@
 					</p>
 				</div>
 				
+				<div sec:authorize="hasRole('Administrador') OR hasRole('Operador')">
+					<p>
+
+
+						<a href="/servs/"><i class="fas fa-calendar ml-2"></i> Ir a Servicios</a>
+					</p>
+				</div>
+				
+				<div sec:authorize="hasRole('Administrador') OR hasRole('Operador')">
+					<p>
+
+
+						<a href="/srs/"><i class="fas fa-calendar ml-2"></i> Ir a Sitios Ruta</a>
+					</p>
+				</div>
 				
 				<p>
 						<a href="/logout/"></i> Cerrar sesion</a>

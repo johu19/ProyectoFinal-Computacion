@@ -35,23 +35,7 @@ public class Tmio1Ruta implements Serializable {
 	@NotBlank(message="Escriba la descripcion")
 	private String descripcion;
 
-//	@NotNull(message="Seleccione el dia de fin")
-//	@Column(name="dia_fin")
-//	private Dia diaFin;
-//
-//	@NotNull(message="Seleccione el dia de inicio")
-//	@Column(name="dia_inicio")
-//	private Dia diaInicio;
-//
-//	@DateTimeFormat(iso = ISO.TIME)
-//	@NotNull(message="Digite la hora de fin")
-//	@Column(name="hora_fin")
-//	private LocalTime horaFin;
-//
-//	@DateTimeFormat(iso = ISO.TIME)
-//	@NotNull(message="Digite la hora de inicio")
-//	@Column(name="hora_inicio")
-//	private LocalTime horaInicio;
+
 	
 	@NotNull(message = "Indique el dia de fin")
 	@Positive(message="Debe ser un numero positivo")

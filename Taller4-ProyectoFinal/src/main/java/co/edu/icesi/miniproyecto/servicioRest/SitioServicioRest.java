@@ -3,6 +3,7 @@ package co.edu.icesi.miniproyecto.servicioRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,9 +34,15 @@ public class SitioServicioRest {
 	}
 	
 	
-//	@GetMapping("/api/sitios/findById")
-//	public Tmio1Sitio consultarSitio(@RequestBody Integer id) {
-//		return serv.consultarSitio(id);
-//	}
+	@GetMapping("/api/sitios/findById")
+	public Tmio1Sitio consultarSitio(@RequestBody Integer id) {
+		return serv.consultarSitio(id);
+	}
+	
+	
+	@PatchMapping("/api/sitios/update")
+	public Tmio1Sitio actualizarSitio(@RequestBody Tmio1Sitio sitio) {
+		return serv.actualizarSitio(sitio);
+	}
 
 }

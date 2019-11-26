@@ -50,7 +50,7 @@
 							<label for="tmio1Sitio1" class="col-form-label">Sitio 1</label> <select
 								th:field="*{tmio1Sitio1}">
 								<option th:each="sitio : ${sitios}" th:value="${sitio.id}"
-									class="form-control" th:text="${sitio.nombre}"
+									class="form-control" th:text="${sitio.id}"
 									th:selected="${sr.tmio1Sitio1=sitio}"></option>
 							</select> <span th:if="${#fields.hasErrors('tmio1Sitio1')}"
 								th:errors="*{tmio1Sitio1}" class="text-danger"></span>
@@ -60,7 +60,7 @@
 							<label for="tmio1Sitio2" class="col-form-label">Sitio 2</label> <select
 								th:field="*{tmio1Sitio2}">
 								<option th:each="sitio : ${sitios}" th:value="${sitio.id}"
-									class="form-control" th:text="${sitio.nombre}"
+									class="form-control" th:text="${sitio.id}"
 									th:selected="${sr.tmio1Sitio2=sitio}"></option>
 							</select> <span th:if="${#fields.hasErrors('tmio1Sitio2')}"
 								th:errors="*{tmio1Sitio2}" class="text-danger"></span>

@@ -68,7 +68,7 @@ public class SitiosRutaController {
 				model.addAttribute("rutas", delegadoRuta.findAllRutas());
 				model.addAttribute("sitios", delegadoSitio.findAllSitios());
 				model.addAttribute("sr", sr);
-
+				
 
 				return "sitiosRuta/add-sitiosRuta";
 			} else {

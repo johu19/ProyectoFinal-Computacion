@@ -24,15 +24,15 @@ import co.edu.icesi.miniproyecto.services.SitioService;
 @Controller
 public class SitioController {
 	
-	@Autowired
-	private SitioService serv;
-	
 //	@Autowired
-//	private SitioClienteRest delegado;
+//	private SitioService serv;
+	
+	@Autowired
+	private SitioClienteRest delegado;
 	
 	@GetMapping("/sitios/")
 	public String indexSitios(Model model) {
-		model.addAttribute("sitios", serv.findAllSitios());
+		model.addAttribute("sitios", delegado.findAllSitios());
 		return "sitios/index";
 	}
 
@@ -55,8 +55,8 @@ public class SitioController {
 			} else {
 				try {
 					
-					serv.agregarSitio(sitio);
-//					delegado.agregarSitio(sitio);
+//					serv.agregarSitio(sitio);
+					delegado.agregarSitio(sitio);
 						
 				} catch (Exception e) {
 					
@@ -70,15 +70,15 @@ public class SitioController {
 	
 	@GetMapping("/sitios/del/{id}")
 	public String deleteSitio(@PathVariable("id") Integer id) {
-//		delegado.borrarSitio(id);
-		serv.eliminarSitio(id);
+		delegado.borrarSitio(id);
+//		serv.eliminarSitio(id);
 		return "redirect:/sitios/";
 	}
 	
 	
 	@GetMapping("/sitios/edit/{id}")
 	public String  showUpdateSitio(@PathVariable("id") Integer id, Model model) {
-		Tmio1Sitio sitio = serv.consultarSitio(id);
+		Tmio1Sitio sitio = delegado.findById(id);
 		model.addAttribute("sitio", sitio);
 		return "sitios/update-sitio";
 	}
@@ -96,7 +96,7 @@ public class SitioController {
 				return "sitios/update-serv";
 			} else
 				try {
-					serv.actualizarSitio(sitio);
+					delegado.actualizarSitio(sitio);
 					
 				} catch (Exception e) {
 					

@@ -44,4 +44,10 @@ public class SitiosRutaClienteRest {
 		return  restTemplate.patchForObject(REST_URI+"api/sr/update", sr,Tmio1SitiosRuta.class);
 	}
 
+
+	public Tmio1SitiosRuta findByPlanedId(String planeID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

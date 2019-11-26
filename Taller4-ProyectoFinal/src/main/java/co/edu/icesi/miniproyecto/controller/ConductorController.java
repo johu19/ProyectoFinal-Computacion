@@ -29,22 +29,22 @@ import co.edu.icesi.miniproyecto.services.ConductorService;
 @Controller
 public class ConductorController {
 	
-	private ConductorService condServ;
+//	private ConductorService condServ;
 	
 	
-//	private ConductoreClienteRest delegado;
+	private ConductoreClienteRest delegado;
 	
 	
 	@Autowired
 	public ConductorController(ConductorService c, ConductoreClienteRest d) {
-		condServ=c;
-//		delegado=d;
+//		condServ=c;
+		delegado=d;
 	}
 	
 	
 	@GetMapping("/conductores/")
 	public String indexCond(Model model) {
-		model.addAttribute("conductores",condServ.findAllConductores());
+		model.addAttribute("conductores",delegado.findAllConductore());
 		return "conductores/index";
 	}
 	
@@ -68,8 +68,8 @@ public class ConductorController {
 			} else {
 				try {
 				
-//					delegado.agregarConductor(conductor);
-					condServ.agregarConductor(conductor);
+					delegado.agregarConductor(conductor);
+//					condServ.agregarConductor(conductor);
 				} catch (Exception e) {
 					if(e.getClass().equals(ConductorFechasException.class)) {
 						return "conductores/error-fechas";

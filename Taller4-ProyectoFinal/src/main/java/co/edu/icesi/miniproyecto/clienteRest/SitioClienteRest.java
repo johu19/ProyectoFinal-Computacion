@@ -44,8 +44,8 @@ public class SitioClienteRest {
 		return restTemplate.patchForObject(REST_URI+"api/sitios/update", sitio, Tmio1Sitio.class);
 	}
 	
-	public Tmio1Sitio findById(){
-		Tmio1Sitio sitio = restTemplate.getForObject(REST_URI+"api/sitios/findById", Tmio1Sitio.class);
+	public Tmio1Sitio findById(Integer id){
+		Tmio1Sitio sitio = restTemplate.getForObject(REST_URI+"api/sitios/findById/"+id, Tmio1Sitio.class);
 		return sitio;
 		
 	}

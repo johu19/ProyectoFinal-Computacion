@@ -25,20 +25,20 @@ import co.edu.icesi.miniproyecto.services.RutaService;
 @Controller
 public class RutaController {
 	
-	private RutaService rutaServ;
+//	private RutaService rutaServ;
 	
-//	private RutaClienteRest delegado;
+	private RutaClienteRest delegado;
 	
 	@Autowired
 	public RutaController(RutaService r, RutaClienteRest d) {
-		rutaServ = r;
-//		delegado=d;
+//		rutaServ = r;
+		delegado=d;
 	}
 	
 	
 	@GetMapping("/rutas/")
 	public String indexRuta(Model model) {
-		model.addAttribute("rutas",rutaServ.findAllRutas());
+		model.addAttribute("rutas",delegado.findAllRutas());
 		return "rutas/index";
 	}
 	
@@ -59,8 +59,8 @@ public class RutaController {
 			} else {
 				try {
 				
-//					delegado.agregarRuta(ruta);
-					rutaServ.agregarRuta(ruta);
+					delegado.agregarRuta(ruta);
+//					rutaServ.agregarRuta(ruta);
 				} catch (Exception e) {
 					if(e.getClass().equals(RutaHorasException.class)) {
 						return "rutas/error-horas";

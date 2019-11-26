@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.icesi.miniproyecto.clienteRest.BusClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.ConductoreClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.RutaClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.ServicioClienteRest;
 import co.edu.icesi.miniproyecto.exceptions.ServicioFechasException;
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
@@ -29,33 +33,49 @@ import co.edu.icesi.miniproyecto.services.ServicioService;
 @Controller
 public class ServicioController {
 
-	private ServicioService servicioServ;
+//	private ServicioService servicioServ;
 
-	private RutaService rutaServ;
+//	private RutaService rutaServ;
 
-	private BusService busServ;
+//	private BusService busServ;
 
-	private ConductorService condServ;
-
+//	private ConductorService condServ;
+	
+	
 	@Autowired
-	public ServicioController(ServicioService s, RutaService r, BusService b, ConductorService c) {
-		servicioServ = s;
-		rutaServ = r;
-		busServ = b;
-		condServ = c;
-	}
+	private ServicioClienteRest delegadoServicio;
+	
+	@Autowired
+	private RutaClienteRest delegadoRuta;
+	
+	@Autowired
+	private ConductoreClienteRest delegadoConductore;
+	
+	@Autowired
+	private BusClienteRest delegadoBus;
+	
+	
+	
+
+//	@Autowired
+//	public ServicioController(ServicioService s, RutaService r, BusService b, ConductorService c) {
+//		servicioServ = s;
+//		rutaServ = r;
+//		busServ = b;
+//		condServ = c;
+//	}
 
 	@GetMapping("/servs/")
 	public String indexServicios(Model model) {
-		model.addAttribute("servicios", servicioServ.findAllServicios());
+		model.addAttribute("servicios", delegadoServicio.findAllServicios());
 		return "servs/index";
 	}
 
 	@GetMapping("servs/add")
 	public String addServicio(Model model) {
-		model.addAttribute("buses", busServ.findAllBuses());
-		model.addAttribute("conductores", condServ.findAllConductores());
-		model.addAttribute("rutas", rutaServ.findAllRutas());
+		model.addAttribute("buses", delegadoBus.findAllBuses());
+		model.addAttribute("conductores", delegadoConductore.findAllConductore());
+		model.addAttribute("rutas", delegadoRuta.findAllRutas());
 		model.addAttribute("servicio", new Tmio1Servicio());
 		return "servs/add-serv";
 	}
@@ -71,10 +91,10 @@ public class ServicioController {
 	@PostMapping("servs/filtrar")
 	public String filtrarServicios(@RequestParam(value = "action", required = true) String action, Model model,Tmio1Servicio s) {
 		if(!action.equals("Cancelar")) {
-			model.addAttribute("servicios", servicioServ.findByDate(s.getFechaServicio()));
+			model.addAttribute("servicios", delegadoServicio.findByDate(s.getFechaServicio()));
 			return "servs/index";
 		}else {
-			model.addAttribute("servicios",servicioServ.findAllServicios());
+			model.addAttribute("servicios",delegadoServicio.findAllServicios());
 			return  "servs/index";
 		}
 	}
@@ -82,7 +102,7 @@ public class ServicioController {
 	
 	@GetMapping("servs/limpiarfiltro")
 	public String limpiarFiltro(Model model) {
-		model.addAttribute("servicios", servicioServ.findAllServicios());
+		model.addAttribute("servicios", delegadoServicio.findAllServicios());
 		return "servs/index";
 	}
 	
@@ -93,9 +113,9 @@ public class ServicioController {
 			@RequestParam(value = "action", required = true) String action, Model model) {
 		if (!action.equals("Cancelar"))
 			if (bindingResult.hasErrors()) {
-				model.addAttribute("rutas", rutaServ.findAllRutas());
-				model.addAttribute("conductores", condServ.findAllConductores());
-				model.addAttribute("buses", busServ.findAllBuses());
+				model.addAttribute("rutas", delegadoRuta.findAllRutas());
+				model.addAttribute("conductores", delegadoConductore.findAllConductore());
+				model.addAttribute("buses", delegadoBus.findAllBuses());
 				model.addAttribute("servicio", servicio);
 
 
@@ -113,7 +133,7 @@ public class ServicioController {
 							+ servicio.getFechaServicio().toString());
 					servicio.setId(pk);
 
-					servicioServ.agregarServicio(servicio);
+					delegadoServicio.agregarServicio(servicio);
 				} catch (Exception e) {
 					
 					if(e.getClass().equals(ServicioFechasException.class)) {
@@ -129,13 +149,13 @@ public class ServicioController {
 	@GetMapping("/servs/edit/{planeID}")
 	public String showUpdateServicios(@PathVariable("planeID") String planeID, Model model) {
 
-		Tmio1Servicio servicio = servicioServ.findByPlaneID(planeID);
+		Tmio1Servicio servicio = delegadoServicio.findByPlaneID(planeID);
 
 		model.addAttribute("tmio1Servicio", servicio);
 
-		model.addAttribute("buses", busServ.findAllBuses());
-		model.addAttribute("conductores", condServ.findAllConductores());
-		model.addAttribute("rutas", rutaServ.findAllRutas());
+		model.addAttribute("buses", delegadoBus.findAllBuses());
+		model.addAttribute("conductores", delegadoConductore.findAllConductore());
+		model.addAttribute("rutas", delegadoRuta.findAllRutas());
 		return "servs/update-serv";
 	}
 
@@ -144,26 +164,26 @@ public class ServicioController {
 			@RequestParam(value = "action", required = true) String action, @Valid Tmio1Servicio tmio1Servicio,
 			BindingResult bindingResult, Model model) {
 		
-		Tmio1Servicio servOrigi=servicioServ.findByPlaneID(id);
+		Tmio1Servicio servOrigi=delegadoServicio.findByPlaneID(id);
 		
 		if (!action.equals("Cancelar")) {
 			if (bindingResult.hasErrors()) {
 				model.addAttribute("servicio", tmio1Servicio);
-				model.addAttribute("buses", busServ.findAllBuses());
-				model.addAttribute("conductores", condServ.findAllConductores());
-				model.addAttribute("rutas", rutaServ.findAllRutas());
+				model.addAttribute("buses", delegadoBus.findAllBuses());
+				model.addAttribute("conductores", delegadoConductore.findAllConductore());
+				model.addAttribute("rutas", delegadoRuta.findAllRutas());
 				return "servs/update-serv";
 			} else
 				try {
 					
-					servicioServ.actualizarServicio(tmio1Servicio);
+					delegadoServicio.actualizarServicio(tmio1Servicio);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 					if(e.getClass().equals(ServicioFechasException.class)) {
 						
 						try {
-							servicioServ.agregarServicio(servOrigi);
+							delegadoServicio.agregarServicio(servOrigi);
 						} catch (Exception e2) {
 						}
 						return "servs/error-fechas";
@@ -176,8 +196,8 @@ public class ServicioController {
 
 	@GetMapping("/servs/del/{planeID}")
 	public String deleteServicio(@PathVariable("planeID") String planeID) {
-		Tmio1ServicioPK pk = servicioServ.findByPlaneID(planeID).getId();
-		servicioServ.eliminarServicio(pk);
+		Tmio1ServicioPK pk = delegadoServicio.findByPlaneID(planeID).getId();
+		delegadoServicio.borrarServicio(pk);
 		return "redirect:/servs/";
 	}
 

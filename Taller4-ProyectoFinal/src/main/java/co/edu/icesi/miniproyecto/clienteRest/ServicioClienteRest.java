@@ -20,65 +20,6 @@ public class ServicioClienteRest {
 	public final static String REST_URI = "http://localhost:8080/";
 
 	private RestTemplate restTemplate = new RestTemplate();
-
-//	public void agregarServicio(Tmio1Servicio servicio) {
-//
-//		TransactionBody<Tmio1Servicio> transaction = new TransactionBody<Tmio1Servicio>("servicio", servicio);
-//		HttpEntity<TransactionBody<Tmio1Servicio>> request = new HttpEntity<>(transaction);
-//		ResponseEntity<TransactionBody<Tmio1Servicio>> response = null;
-//
-//		try {
-//			response = rest.exchange(REST_URI + "api/servicios/add", HttpMethod.POST, request,
-//					new ParameterizedTypeReference<TransactionBody<Tmio1Servicio>>() {
-//					});
-//		} catch (HttpStatusCodeException e) {
-//			int statusCode = e.getStatusCode().value();
-//			System.out.println("ERROR: " + statusCode + " - " + e.getResponseBodyAsString());
-//		}
-//		response.getBody();
-//
-//	}
-//
-//	public Iterable<Tmio1Servicio> findAllServicios() {
-//		ResponseEntity<TransactionBody<Iterable<Tmio1Servicio>>> response = null;
-//		HttpEntity request = new HttpEntity(null);
-//		try {
-//			response = rest.exchange(REST_URI + "/api/servicios/findAll", HttpMethod.GET, request,
-//					new ParameterizedTypeReference<TransactionBody<Iterable<Tmio1Servicio>>>() {
-//					});
-//		} catch (HttpStatusCodeException e) {
-//			int statusCode = e.getStatusCode().value();
-//			System.out.println("ERROR: " + statusCode + " - " + e.getResponseBodyAsString());
-//		}
-//		if (response != null) {
-//			Iterable<Tmio1Servicio> allServicios = response.getBody().getBody();
-//			return allServicios;
-//		}
-//
-//		return null;
-//
-//	}
-//
-//	public void borrarServicio(Tmio1ServicioPK id) {
-//
-//		TransactionBody<Tmio1ServicioPK> transaction = new TransactionBody<>("id", id);
-//		HttpEntity<TransactionBody<Tmio1ServicioPK>> request = new HttpEntity<>(transaction);
-//		ResponseEntity<TransactionBody<Tmio1ServicioPK>> response = null;
-//
-//		try {
-//
-//			response = rest.exchange(REST_URI + "/api/servicios/borrar", HttpMethod.DELETE, request,
-//					new ParameterizedTypeReference<TransactionBody<Tmio1ServicioPK>>() {
-//					});
-//
-//		} catch (HttpStatusCodeException e) {
-//			int statusCode = e.getStatusCode().value();
-//			System.out.println("ERROR: " + statusCode + " - " + e.getResponseBodyAsString());
-//		}
-//		response.getBody();
-//
-//	}
-	
 	
 	public Tmio1Servicio agregarServicio(Tmio1Servicio servicio) {
 		return restTemplate.postForEntity(REST_URI+"api/servicios/add",servicio, Tmio1Servicio.class).getBody();
@@ -104,7 +45,7 @@ public class ServicioClienteRest {
 	
 	
 	public Iterable<Tmio1Servicio> findByDate(Date d){
-		Tmio1Servicio[] servs = restTemplate.getForObject(REST_URI+"api/servicios/findByDate",Tmio1Servicio[].class);
+		Tmio1Servicio[] servs = restTemplate.getForObject(REST_URI+"api/servicios/findByDate/"+d.toString(),Tmio1Servicio[].class);
 		List<Tmio1Servicio> servsL;
 		try {
 			servsL = Arrays.asList(servs);
@@ -118,6 +59,17 @@ public class ServicioClienteRest {
 	
 	public Tmio1Servicio actualizarServicio(Tmio1Servicio servicio) {
 		return restTemplate.patchForObject(REST_URI+"api/servicios/update", servicio, Tmio1Servicio.class);
+	}
+
+	public Tmio1Servicio findByPlaneID(String planeID) {
+		
+		try {
+			Tmio1Servicio serv = restTemplate.getForObject(REST_URI+"api/servicios/findByPlaneID/"+planeID,Tmio1Servicio.class);
+			return serv;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	

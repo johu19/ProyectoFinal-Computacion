@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import co.edu.icesi.miniproyecto.clienteRest.RutaClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.SitioClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.SitiosRutaClienteRest;
 import co.edu.icesi.miniproyecto.model.Tmio1SitiosRuta;
 import co.edu.icesi.miniproyecto.model.Tmio1SitiosRutaPK;
 import co.edu.icesi.miniproyecto.services.RutaService;
@@ -20,27 +24,36 @@ import co.edu.icesi.miniproyecto.services.SitiosRutaService;
 public class SitiosRutaController {
 	
 	
-	@Autowired
-	private SitiosRutaService srServ;
+//	@Autowired
+//	private SitiosRutaService srServ;
+//	
+//	@Autowired
+//	private RutaService rutaServ;
+//	
+//	@Autowired
+//	private SitioService sitioServ;
 	
 	@Autowired
-	private RutaService rutaServ;
+	private SitiosRutaClienteRest delegadoSR;
 	
 	@Autowired
-	private SitioService sitioServ;
+	private SitioClienteRest delegadoSitio;
+	
+	@Autowired
+	private RutaClienteRest delegadoRuta;
 	
 	
 	@GetMapping("/srs/")
 	public String indexSitiosRuta(Model model) {
-		model.addAttribute("srs", srServ.findAllSitiosRuta());
+		model.addAttribute("srs", delegadoSR.findAllSitiosRuta());
 		return "sitiosRuta/index";
 	}
 	
 	
 	@GetMapping("srs/add")
 	public String addSitiosRuta(Model model) {
-		model.addAttribute("sitios", sitioServ.findAllSitios());
-		model.addAttribute("rutas",rutaServ.findAllRutas());
+		model.addAttribute("sitios", delegadoSitio.findAllSitios());
+		model.addAttribute("rutas",delegadoRuta.findAllRutas());
 		model.addAttribute("sr", new Tmio1SitiosRuta());
 		return "sitiosRuta/add-sitiosRuta";
 	}
@@ -52,8 +65,8 @@ public class SitiosRutaController {
 			@RequestParam(value = "action", required = true) String action, Model model) {
 		if (!action.equals("Cancelar"))
 			if (bindingResult.hasErrors()) {
-				model.addAttribute("rutas", rutaServ.findAllRutas());
-				model.addAttribute("sitios", sitioServ.findAllSitios());
+				model.addAttribute("rutas", delegadoRuta.findAllRutas());
+				model.addAttribute("sitios", delegadoSitio.findAllSitios());
 				model.addAttribute("sr", sr);
 
 
@@ -66,7 +79,7 @@ public class SitiosRutaController {
 					pk.setIdSitio(sr.getTmio1Sitio1().getId());
 					sr.setPlaneID(pk.getIdRuta()+"_"+pk.getIdSitio());
 					sr.setId(pk);
-					srServ.agregarSitiosRuta(sr);
+					delegadoSR.agregarSitiosRuta(sr);
 					
 				} catch (Exception e) {
 					
@@ -82,11 +95,11 @@ public class SitiosRutaController {
 	@GetMapping("/srs/edit/{planeID}")
 	public String showUpdateServicios(@PathVariable("planeID") String planeID, Model model) {
 
-		Tmio1SitiosRuta sr = srServ.findByPlanedId(planeID);
+		Tmio1SitiosRuta sr = delegadoSR.findByPlanedId(planeID);
 		
 		model.addAttribute("sr", sr);
-		model.addAttribute("sitios", sitioServ.findAllSitios());
-		model.addAttribute("rutas", rutaServ.findAllRutas());
+		model.addAttribute("sitios", delegadoSitio.findAllSitios());
+		model.addAttribute("rutas", delegadoRuta.findAllRutas());
 		return "servs/update-sitiosRuta";
 	}
 	
@@ -96,8 +109,8 @@ public class SitiosRutaController {
 			@RequestParam(value = "action", required = true) String action, Model model) {
 		if (!action.equals("Cancelar"))
 			if (bindingResult.hasErrors()) {
-				model.addAttribute("rutas", rutaServ.findAllRutas());
-				model.addAttribute("sitios", sitioServ.findAllSitios());
+				model.addAttribute("rutas", delegadoRuta.findAllRutas());
+				model.addAttribute("sitios", delegadoSitio.findAllSitios());
 				model.addAttribute("sr", sr);
 
 
@@ -105,7 +118,7 @@ public class SitiosRutaController {
 			} else {
 				try {
 
-					srServ.actualizarSitiosRuta(sr);
+					delegadoSR.actualizarSitiosRuta(sr);
 					
 				} catch (Exception e) {
 					
@@ -123,8 +136,8 @@ public class SitiosRutaController {
 	
 	@GetMapping("/srs/del{planeID}")
 	public String deleteSitiosRuta(@PathVariable("planeID") String planeID) {
-		Tmio1SitiosRutaPK pk = srServ.findByPlanedId(planeID).getId();
-		srServ.eliminarSitiosRuta(pk);
+		Tmio1SitiosRutaPK pk = delegadoSR.findByPlanedId(planeID).getId();
+		delegadoSR.borrarSitiosRuta(pk);
 		return "redirect:/srs/";
 	}
 	

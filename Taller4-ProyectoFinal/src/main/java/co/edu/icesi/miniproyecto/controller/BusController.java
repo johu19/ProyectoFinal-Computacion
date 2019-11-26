@@ -19,19 +19,19 @@ import co.edu.icesi.miniproyecto.services.BusService;
 @Controller
 public class BusController {
 
-	private BusService busServ;
+//	private BusService busServ;
 	
-//	private BusClienteRest delegado;
+	private BusClienteRest delegado;
 
 	@Autowired
 	public BusController(BusService b, BusClienteRest d) {
-		busServ = b;
-//		delegado = d;
+//		busServ = b;
+		delegado = d;
 	}
 
 	@GetMapping("/buses/")
 	public String indexBuses(Model model) {
-		model.addAttribute("buses", busServ.findAllBuses());
+		model.addAttribute("buses", delegado.findAllBuses());
 		return "buses/index";
 	}
 
@@ -39,7 +39,7 @@ public class BusController {
 	public String addBuses(Model model) {
 		Tmio1Bus bu = new Tmio1Bus();
 		model.addAttribute("bus", bu);
-		model.addAttribute("tipos", busServ.obtenerTipos());
+		model.addAttribute("tipos", delegado.obtenerTipos());
 		return "buses/add-bus";
 	}
 
@@ -50,12 +50,12 @@ public class BusController {
 		if (!action.equals("Cancelar"))
 			if (bindingResult.hasErrors()) {
 				model.addAttribute("bus", bus);
-				model.addAttribute("tipos", busServ.obtenerTipos());
+				model.addAttribute("tipos", delegado.obtenerTipos());
 				return "buses/add-bus";
 			} else {
 				try {
 
-					busServ.agregarBus(bus);
+					delegado.agregarBus(bus);
 //					delegado.agregarBus(bus);
 				} catch (Exception e) {
 					if (e.getClass().equals(BusPlacaRepetidaException.class)) {

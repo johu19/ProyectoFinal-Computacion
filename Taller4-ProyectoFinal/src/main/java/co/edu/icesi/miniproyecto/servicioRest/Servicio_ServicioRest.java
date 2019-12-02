@@ -43,7 +43,6 @@ public class Servicio_ServicioRest {
 
 	@GetMapping("/api/servicios/findByDate/{d}")
 	public Iterable<Tmio1Servicio> findByDate(@PathVariable String d) {
-		System.out.println("-------------------->"+d);
 //		return serv.findByDate(d);
 		return null;
 	}

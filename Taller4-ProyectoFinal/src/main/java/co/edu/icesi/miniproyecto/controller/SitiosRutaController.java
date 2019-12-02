@@ -136,8 +136,7 @@ public class SitiosRutaController {
 	
 	@GetMapping("/srs/del{planeID}")
 	public String deleteSitiosRuta(@PathVariable("planeID") String planeID) {
-		Tmio1SitiosRutaPK pk = delegadoSR.findByPlanedId(planeID).getId();
-		delegadoSR.borrarSitiosRuta(pk);
+		delegadoSR.borrarSitiosRuta(planeID);
 		return "redirect:/srs/";
 	}
 	

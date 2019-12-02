@@ -134,6 +134,7 @@ public class ServicioController {
 					servicio.setId(pk);
 
 					delegadoServicio.agregarServicio(servicio);
+					
 				} catch (Exception e) {
 					
 					if(e.getClass().equals(ServicioFechasException.class)) {

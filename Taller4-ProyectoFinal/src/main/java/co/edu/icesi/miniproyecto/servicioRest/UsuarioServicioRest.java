@@ -23,7 +23,7 @@ public class UsuarioServicioRest {
 		return serv.agregarUsuario(usuario);
 	}
 	
-	@GetMapping("/api/usuarios/findById")
+	@GetMapping("/api/usuarios/findById/{id}")
 	public Usuario findById(@PathVariable String id) {
 		return serv.consultarUsuario(id);
 	}

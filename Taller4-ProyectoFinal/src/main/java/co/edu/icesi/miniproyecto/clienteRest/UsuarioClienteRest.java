@@ -19,7 +19,7 @@ public class UsuarioClienteRest {
 	}
 	
 	public Usuario findById(String id) {
-		Usuario usuario = restTemplate.getForObject(REST_URI+"api/usuarios/findById"+id, Usuario.class);
+		Usuario usuario = restTemplate.getForObject(REST_URI+"api/usuarios/findById/"+id, Usuario.class);
 		return usuario;
 	}
 

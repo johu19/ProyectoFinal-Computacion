@@ -29,8 +29,8 @@ public class SitioServicioRest {
 		return serv.findAllSitios();
 	}
 	
-	@DeleteMapping("/api/sitios/borrar")
-	public void borrarSitio(@RequestBody Integer id) {
+	@DeleteMapping("/api/sitios/borrar/{id}")
+	public void borrarSitio(@PathVariable Integer id) {
 		serv.eliminarSitio(id);
 	}
 	

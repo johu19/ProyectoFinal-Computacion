@@ -66,6 +66,8 @@ public class SitiosRutaClienteRestTest {
 	@BeforeMethod(alwaysRun = true)
 	public void init() {
 		delegado = new SitiosRutaClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 		setupRutas();
 		setupSitios();
 	}
@@ -80,10 +82,8 @@ public class SitiosRutaClienteRestTest {
 		
 		sr.setId(id);
 		sr.setPlaneID("0");
-		sr.setTmio1Ruta1(ruta1);
-		sr.setTmio1Ruta2(ruta2);
-		sr.setTmio1Sitio1(sitio1);
-		sr.setTmio1Sitio2(sitio2);
+		sr.setTmio1Ruta(ruta1);
+		sr.setTmio1Sitio(sitio1);
 		
 		assertEquals(delegado.agregarSitiosRuta(sr),sr);
 		when(restTemplate.postForEntity(REST_URI + "api/sr/add", sr, Tmio1SitiosRuta.class).getBody()).thenReturn(sr);
@@ -99,10 +99,8 @@ public class SitiosRutaClienteRestTest {
 		
 		sr.setId(id);
 		sr.setPlaneID("0");
-		sr.setTmio1Ruta1(ruta1);
-		sr.setTmio1Ruta2(ruta2);
-		sr.setTmio1Sitio1(sitio1);
-		sr.setTmio1Sitio2(sitio2);
+		sr.setTmio1Ruta(ruta1);
+		sr.setTmio1Sitio(sitio1);
 		
 		Tmio1SitiosRuta sr1 = new Tmio1SitiosRuta();
 		
@@ -112,10 +110,8 @@ public class SitiosRutaClienteRestTest {
 		
 		sr1.setId(id1);
 		sr1.setPlaneID("0");
-		sr1.setTmio1Ruta1(ruta2);
-		sr1.setTmio1Ruta2(ruta1);
-		sr1.setTmio1Sitio1(sitio2);
-		sr1.setTmio1Sitio2(sitio1);
+		sr1.setTmio1Ruta(ruta2);
+		sr1.setTmio1Sitio(sitio2);
 		
 		Tmio1SitiosRuta[] lista = new Tmio1SitiosRuta[2];
 		lista[0]=sr;
@@ -141,10 +137,8 @@ public class SitiosRutaClienteRestTest {
 		
 		sr.setId(id);
 		sr.setPlaneID("0");
-		sr.setTmio1Ruta1(ruta1);
-		sr.setTmio1Ruta2(ruta2);
-		sr.setTmio1Sitio1(sitio1);
-		sr.setTmio1Sitio2(sitio2);
+		sr.setTmio1Ruta(ruta1);
+		sr.setTmio1Sitio(sitio1);
 		
 		assertEquals(delegado.actualizarSitiosRuta(sr),sr);
 		when(restTemplate.patchForObject(REST_URI + "api/sr/update", sr, Tmio1SitiosRuta.class)).thenReturn(sr);

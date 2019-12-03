@@ -135,6 +135,8 @@ public class SitioClienteRestTest {
 	@BeforeMethod(alwaysRun = true)
 	public void init() throws ParseException {
 		delegado = new SitioClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 		setupBuses();
 		setupConductores();
 		setupRutas();

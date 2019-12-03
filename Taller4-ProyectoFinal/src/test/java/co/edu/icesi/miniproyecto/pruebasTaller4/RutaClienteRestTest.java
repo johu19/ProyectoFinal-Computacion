@@ -29,6 +29,8 @@ public class RutaClienteRestTest {
 	@BeforeMethod(alwaysRun = true)
 	public void init() {
 		delegado = new RutaClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 	}
 	
 	@Test

@@ -60,6 +60,14 @@ public class SitioClienteRest {
 		return sitio;
 		
 	}
+
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
 	
 
 }

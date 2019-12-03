@@ -7,8 +7,10 @@ import java.math.BigDecimal;
 
 import org.mockito.Mock;
 import org.springframework.web.client.RestTemplate;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import co.edu.icesi.miniproyecto.clienteRest.RutaClienteRest;
 import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
 import co.edu.icesi.miniproyecto.model.TipoUsuario;
 import co.edu.icesi.miniproyecto.model.Usuario;
@@ -22,6 +24,13 @@ public class UsuarioClienteRestTest {
 	
 	@Mock
 	private RestTemplate restTemplate;
+	
+	@BeforeMethod(alwaysRun = true)
+	public void init() {
+		delegado = new UsuarioClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
+	}
 	
 	@Test
 	public void testagregarUsuario () {

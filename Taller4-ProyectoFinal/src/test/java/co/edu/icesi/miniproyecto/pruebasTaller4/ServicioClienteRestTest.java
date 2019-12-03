@@ -126,6 +126,8 @@ public class ServicioClienteRestTest {
 	@BeforeMethod(alwaysRun = true)
 	public void init() throws ParseException {
 		delegado = new ServicioClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 		setupBuses();
 		setupConductores();
 		setupRutas();

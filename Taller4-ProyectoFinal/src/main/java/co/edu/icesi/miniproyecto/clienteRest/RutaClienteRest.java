@@ -73,5 +73,13 @@ public final static String REST_URI = "http://localhost:8080/";
 	public Tmio1Ruta agregarRuta(Tmio1Ruta ruta) {
 		return restTemplate.postForEntity(REST_URI+"api/rutas/add",ruta, Tmio1Ruta.class).getBody();
 	}
+
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
 	
 }

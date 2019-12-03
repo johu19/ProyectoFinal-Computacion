@@ -82,4 +82,12 @@ public class ServicioClienteRest {
 		return null;
 	}
 
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
+
 }

@@ -32,6 +32,12 @@ public class UsuarioClienteRestTest {
 	
 	@Test
 	public void testfindById () {
-
+		Usuario usuario = new Usuario();
+		usuario.setPassword("123456789");
+		usuario.setTipo(TipoUsuario.Administrador);
+		usuario.setType(TipoUsuario.Administrador);
+		usuario.setUsername("pepe");
+		
+		when(mock.findById(usuario.getUsername())).thenReturn(usuario);
 	}
 }

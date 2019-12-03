@@ -144,17 +144,17 @@ public class SitioClienteRestTest {
 		setupServicios();
 	}
 	
-	//TODO
-	@Test
-	public void testagregarSitio () {
-		Tmio1Sitio sitio = new Tmio1Sitio();
-		sitio.setDescripcion("aaa");
-		sitio.setId(1);
-		sitio.setNombre("sitio");
-		sitio.setTmio1ServiciosSitios(tmio1ServiciosSitios);
-		sitio.setTmio1SitiosRutas1(tmio1SitiosRutas1);
-		sitio.setTmio1SitiosRutas2(tmio1SitiosRutas2);
-	}
+//	//TODO
+//	@Test
+//	public void testagregarSitio () {
+//		Tmio1Sitio sitio = new Tmio1Sitio();
+//		sitio.setDescripcion("aaa");
+//		sitio.setId(1);
+//		sitio.setNombre("sitio");
+//		sitio.setTmio1ServiciosSitios(tmio1ServiciosSitios);
+//		sitio.setTmio1SitiosRutas1(tmio1SitiosRutas1);
+//		sitio.setTmio1SitiosRutas2(tmio1SitiosRutas2);
+//	}
 	
 	//TODO
 	@Test

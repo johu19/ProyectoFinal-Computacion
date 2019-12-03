@@ -54,84 +54,84 @@ public class Taller3Application {
 	}
 	
 	
-	@Bean
-	public CommandLineRunner demo(UsuarioClienteRest usuRest,
-			RutaClienteRest rutaRest, ConductoreClienteRest condRest, 
-			BusClienteRest busRest, SitioClienteRest sitioRest, SitiosRutaClienteRest srRest) {
-		
-		return (args) -> {
-			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			
-			Usuario u1 = new Usuario();
-			u1.setUsername("admin");
-			u1.setPassword(passwordEncoder.encode("123"));
-			u1.setTipo(TipoUsuario.Administrador);
-			usuRest.agregarUsuario(u1);
-			
-			Usuario u2 = new Usuario();
-			u2.setUsername("ope");
-			u2.setPassword(passwordEncoder.encode("123"));
-			u2.setTipo(TipoUsuario.Operador);
-			usuRest.agregarUsuario(u2);
-			
-			Tmio1Sitio sitio = new Tmio1Sitio();
-			sitio.setNombre("Universidades");
-			sitio.setDescripcion("Al lado de jardin plaza");
-			sitioRest.agregarSitio(sitio);
-			
-			Tmio1Sitio sitio1 = new Tmio1Sitio();
-			sitio1.setNombre("Capri");
-			sitio1.setDescripcion("Al lado de san sur");
-			sitioRest.agregarSitio(sitio1);
-			
-			Tmio1Bus bus = new Tmio1Bus();
-			bus.setCapacidad(new BigDecimal(10));
-			bus.setMarca("Audi");
-			bus.setModelo(new BigDecimal(2018));
-			bus.setPlaca("CWR897");
-			bus.setTipo(TipoBus.A);
-			busRest.agregarBus(bus);
-			
-			Tmio1Bus bus1 = new Tmio1Bus();
-			bus1.setCapacidad(new BigDecimal(25));
-			bus1.setMarca("Volvo");
-			bus1.setModelo(new BigDecimal(2020));
-			bus1.setPlaca("UBU335");
-			bus1.setTipo(TipoBus.T);
-			busRest.agregarBus(bus1);
-			
-			
-			
-			Tmio1Ruta ruta = new Tmio1Ruta();
-			ruta.setActiva("SI");
-			ruta.setDescripcion("E21");
-			ruta.setDiaInicio(new BigDecimal(2));
-			ruta.setDiaFin(new BigDecimal(6));
-			ruta.setHoraInicio(new BigDecimal(5));
-			ruta.setHoraFin(new BigDecimal(21));
-			ruta.setNumero("43");
-			rutaRest.agregarRuta(ruta);
-			
-			
-			Tmio1Ruta ruta1 = new Tmio1Ruta();
-			ruta1.setActiva("SI");
-			ruta1.setDescripcion("A11");
-			ruta1.setDiaInicio(new BigDecimal(1));
-			ruta1.setDiaFin(new BigDecimal(7));
-			ruta1.setHoraInicio(new BigDecimal(4));
-			ruta1.setHoraFin(new BigDecimal(22));
-			ruta1.setNumero("31");
-			rutaRest.agregarRuta(ruta1);
-			
-			
-			Tmio1Conductore cond = new Tmio1Conductore();
-			cond.setApellidos("Galvis");
-			cond.setCedula("1151963652");
-			cond.setNombre("Jose");
-			cond.setFechaNacimiento(new Date(10));
-			cond.setFechaContratacion(new Date(1000000));
-			condRest.agregarConductor(cond);
-			
+//	@Bean
+//	public CommandLineRunner demo(UsuarioClienteRest usuRest,
+//			RutaClienteRest rutaRest, ConductoreClienteRest condRest, 
+//			BusClienteRest busRest, SitioClienteRest sitioRest, SitiosRutaClienteRest srRest) {
+//		
+//		return (args) -> {
+//			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//			
+//			Usuario u1 = new Usuario();
+//			u1.setUsername("admin");
+//			u1.setPassword(passwordEncoder.encode("123"));
+//			u1.setTipo(TipoUsuario.Administrador);
+//			usuRest.agregarUsuario(u1);
+//			
+//			Usuario u2 = new Usuario();
+//			u2.setUsername("ope");
+//			u2.setPassword(passwordEncoder.encode("123"));
+//			u2.setTipo(TipoUsuario.Operador);
+//			usuRest.agregarUsuario(u2);
+//			
+//			Tmio1Sitio sitio = new Tmio1Sitio();
+//			sitio.setNombre("Universidades");
+//			sitio.setDescripcion("Al lado de jardin plaza");
+//			sitioRest.agregarSitio(sitio);
+//			
+//			Tmio1Sitio sitio1 = new Tmio1Sitio();
+//			sitio1.setNombre("Capri");
+//			sitio1.setDescripcion("Al lado de san sur");
+//			sitioRest.agregarSitio(sitio1);
+//			
+//			Tmio1Bus bus = new Tmio1Bus();
+//			bus.setCapacidad(new BigDecimal(10));
+//			bus.setMarca("Audi");
+//			bus.setModelo(new BigDecimal(2018));
+//			bus.setPlaca("CWR897");
+//			bus.setTipo(TipoBus.A);
+//			busRest.agregarBus(bus);
+//			
+//			Tmio1Bus bus1 = new Tmio1Bus();
+//			bus1.setCapacidad(new BigDecimal(25));
+//			bus1.setMarca("Volvo");
+//			bus1.setModelo(new BigDecimal(2020));
+//			bus1.setPlaca("UBU335");
+//			bus1.setTipo(TipoBus.T);
+//			busRest.agregarBus(bus1);
+//			
+//			
+//			
+//			Tmio1Ruta ruta = new Tmio1Ruta();
+//			ruta.setActiva("SI");
+//			ruta.setDescripcion("E21");
+//			ruta.setDiaInicio(new BigDecimal(2));
+//			ruta.setDiaFin(new BigDecimal(6));
+//			ruta.setHoraInicio(new BigDecimal(5));
+//			ruta.setHoraFin(new BigDecimal(21));
+//			ruta.setNumero("43");
+//			rutaRest.agregarRuta(ruta);
+//			
+//			
+//			Tmio1Ruta ruta1 = new Tmio1Ruta();
+//			ruta1.setActiva("SI");
+//			ruta1.setDescripcion("A11");
+//			ruta1.setDiaInicio(new BigDecimal(1));
+//			ruta1.setDiaFin(new BigDecimal(7));
+//			ruta1.setHoraInicio(new BigDecimal(4));
+//			ruta1.setHoraFin(new BigDecimal(22));
+//			ruta1.setNumero("31");
+//			rutaRest.agregarRuta(ruta1);
+//			
+//			
+//			Tmio1Conductore cond = new Tmio1Conductore();
+//			cond.setApellidos("Galvis");
+//			cond.setCedula("1151963652");
+//			cond.setNombre("Jose");
+//			cond.setFechaNacimiento(new Date(10));
+//			cond.setFechaContratacion(new Date(1000000));
+//			condRest.agregarConductor(cond);
+//			
 //			Tmio1SitiosRuta sr = new Tmio1SitiosRuta();
 //			sr.setTmio1Ruta(ruta1);
 //			sr.setTmio1Sitio(sitio1);
@@ -141,8 +141,8 @@ public class Taller3Application {
 //			sr.setPlaneID(pk.getIdRuta()+"_"+pk.getIdSitio());
 //			sr.setId(pk);
 //			srRest.agregarSitiosRuta(sr);
-			
-		};
-	}
+//			
+//		};
+//	}
 
 }

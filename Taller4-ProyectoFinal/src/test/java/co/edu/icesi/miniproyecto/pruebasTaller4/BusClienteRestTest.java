@@ -68,9 +68,15 @@ public class BusClienteRestTest {
 		when(restTemplate.getForObject(REST_URI + "api/buses/findAll", Tmio1Bus[].class)).thenReturn(lista);
 	}
 	
-	//TODO
 	@Test
 	public void testobtenerTipos () {
+		
+		TipoBus[] tiposBus = new TipoBus[3];
+		tiposBus[0]=TipoBus.A;
+		tiposBus[1]=TipoBus.T;
+		tiposBus[2]=TipoBus.P;
+		
+		when(restTemplate.getForObject(REST_URI+"api/buses/findTipos", TipoBus[].class)).thenReturn(tiposBus);
 		
 	}
 	

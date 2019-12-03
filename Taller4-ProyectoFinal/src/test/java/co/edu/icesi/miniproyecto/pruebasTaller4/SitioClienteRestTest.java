@@ -1,10 +1,13 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.mockito.Mock;
 import org.springframework.web.client.RestTemplate;
@@ -26,6 +29,8 @@ import co.edu.icesi.miniproyecto.servicioRest.SitioServicioRest;
 
 public class SitioClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private SitioClienteRest delegado;
 	
 	private Tmio1Bus bus1;
@@ -144,22 +149,34 @@ public class SitioClienteRestTest {
 		setupServicios();
 	}
 	
-//	//TODO
-//	@Test
-//	public void testagregarSitio () {
-//		Tmio1Sitio sitio = new Tmio1Sitio();
-//		sitio.setDescripcion("aaa");
-//		sitio.setId(1);
-//		sitio.setNombre("sitio");
+	@Test
+	public void testagregarSitio () {
+		Tmio1Sitio sitio = new Tmio1Sitio();
+		sitio.setDescripcion("aaa");
+		sitio.setId(1);
+		sitio.setNombre("sitio");
 //		sitio.setTmio1ServiciosSitios(tmio1ServiciosSitios);
 //		sitio.setTmio1SitiosRutas1(tmio1SitiosRutas1);
 //		sitio.setTmio1SitiosRutas2(tmio1SitiosRutas2);
-//	}
+		
+		when(restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody()).thenReturn(sitio);
+		assertEquals(delegado.agregarSitio(sitio), sitio);
+	}
 	
-	//TODO
 	@Test
 	public void testfindAllSitios () {
-
+		
+		Tmio1Sitio sitio = new Tmio1Sitio();
+		sitio.setDescripcion("bien");
+		sitio.setId(0);
+		sitio.setNombre("pacho");
+		
+		Tmio1Sitio[] sitios = new Tmio1Sitio[1];
+		sitios[0]=sitio;
+		
+		when(restTemplate.getForObject(REST_URI+"api/sitios/findAll", Tmio1Sitio[].class)).thenReturn(sitios);
+		assertEquals(delegado.findAllSitios(), sitios);
+		
 	}
 	
 	@Test
@@ -167,14 +184,33 @@ public class SitioClienteRestTest {
 
 	}
 	
-	@Test
 	public void testactualizarSitio () {
-
+		Tmio1Sitio sitio = new Tmio1Sitio();
+		sitio.setDescripcion("bien");
+		sitio.setId(0);
+		sitio.setNombre("pacho");
+		
+		when(restTemplate.patchForObject(REST_URI+"api/sitios/update", sitio, Tmio1Sitio.class)).thenReturn(sitio);
+		assertEquals(delegado.actualizarSitio(sitio), sitio);
 	}
 	
-	@Test
 	public void testfindById () {
-
+		Tmio1Sitio sitio = new Tmio1Sitio();
+		sitio.setDescripcion("bien");
+		sitio.setId(0);
+		sitio.setNombre("pacho");
+		
+		Tmio1Sitio sitio1 = new Tmio1Sitio();
+		sitio1.setDescripcion("bien");
+		sitio1.setId(1);
+		sitio1.setNombre("pacho");
+		
+		Tmio1Sitio[] sitios = new Tmio1Sitio[2];
+		sitios[0]=sitio;
+		sitios[1]=sitio1;
+		
+		when(restTemplate.getForObject(REST_URI+"api/sitios/findById/"+sitio.getId(), Tmio1Sitio.class)).thenReturn(sitio);
+		assertEquals(delegado.findById(sitio.getId()), sitio);
 	}
 	
 }

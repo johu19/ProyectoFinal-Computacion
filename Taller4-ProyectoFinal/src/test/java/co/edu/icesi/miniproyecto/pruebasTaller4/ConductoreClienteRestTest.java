@@ -42,8 +42,8 @@ public class ConductoreClienteRestTest {
 		conductor.setFechaContratacion((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
 		conductor.setNombre("Arroyo");
 		
-		assertEquals(delegado.agregarConductor(conductor),conductor);
 		when(restTemplate.postForEntity(REST_URI+"api/conductore/add", conductor, Tmio1Conductore.class).getBody()).thenReturn(conductor);
+		assertEquals(delegado.agregarConductor(conductor),conductor);
 	}
 	
 	@Test
@@ -66,8 +66,8 @@ public class ConductoreClienteRestTest {
 		lista[0]=conductor;
 		lista[1]=conductor1;
 		
-		assertEquals(delegado.findAllConductore(),lista);
 		when(restTemplate.getForObject(REST_URI+"api/conductore/findAll", Tmio1Conductore[].class)).thenReturn(lista);
+		assertEquals(delegado.findAllConductore(),lista);
 	}
 	
 }

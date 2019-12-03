@@ -85,8 +85,8 @@ public class SitiosRutaClienteRestTest {
 		sr.setTmio1Ruta(ruta1);
 		sr.setTmio1Sitio(sitio1);
 		
-		assertEquals(delegado.agregarSitiosRuta(sr),sr);
 		when(restTemplate.postForEntity(REST_URI + "api/sr/add", sr, Tmio1SitiosRuta.class).getBody()).thenReturn(sr);
+		assertEquals(delegado.agregarSitiosRuta(sr),sr);
 	}
 	
 	@Test
@@ -117,8 +117,8 @@ public class SitiosRutaClienteRestTest {
 		lista[0]=sr;
 		lista[1]=sr1;
 		
-		assertEquals(delegado.findAllSitiosRuta(),lista);
 		when(restTemplate.getForObject(REST_URI + "api/sr/findAll", Tmio1SitiosRuta[].class)).thenReturn(lista);
+		assertEquals(delegado.findAllSitiosRuta(),lista);
 	}
 	
 	//TODO
@@ -140,13 +140,22 @@ public class SitiosRutaClienteRestTest {
 		sr.setTmio1Ruta(ruta1);
 		sr.setTmio1Sitio(sitio1);
 		
-		assertEquals(delegado.actualizarSitiosRuta(sr),sr);
 		when(restTemplate.patchForObject(REST_URI + "api/sr/update", sr, Tmio1SitiosRuta.class)).thenReturn(sr);
+		assertEquals(delegado.actualizarSitiosRuta(sr),sr);
 	}
 	
 	//TODO
 	@Test
 	public void testfindByPlanedId () {
-
+		Tmio1SitiosRuta sr = new Tmio1SitiosRuta();
+		Tmio1SitiosRutaPK id = new Tmio1SitiosRutaPK();
+		id.setIdRuta(ruta1.getId());
+		id.setIdSitio(ruta2.getId());
+		sr.setId(id);
+		sr.setPlaneID("0");
+		sr.setTmio1Ruta(ruta1);
+		sr.setTmio1Sitio(sitio1);
+		
+		
 	}
 }

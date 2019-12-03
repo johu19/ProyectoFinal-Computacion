@@ -45,8 +45,8 @@ public class RutaClienteRestTest {
 		ruta.setHoraInicio(new BigDecimal(18000));
 		ruta.setNumero("T31");
 		
-		assertEquals(delegado.agregarRuta(ruta),ruta);
 		when(restTemplate.postForEntity(REST_URI+"api/rutas/add",ruta, Tmio1Ruta.class).getBody()).thenReturn(ruta);
+		assertEquals(delegado.agregarRuta(ruta),ruta);
 		
 	}
 
@@ -76,8 +76,8 @@ public class RutaClienteRestTest {
 		lista[0]=ruta;
 		lista[1]=ruta1;
 		
-		assertEquals(delegado.findAllRutas(),lista);
 		when(restTemplate.getForObject(REST_URI+"api/rutas/findAll", Tmio1Ruta[].class)).thenReturn(lista);
+		assertEquals(delegado.findAllRutas(),lista);
 	}
 	
 }

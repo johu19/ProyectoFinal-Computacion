@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.mockito.Mock;
@@ -143,8 +144,8 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
-		assertEquals(delegado.agregarServicio(serv),serv);
 		when(restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody()).thenReturn(serv);
+		assertEquals(delegado.agregarServicio(serv),serv);
 	}
 	
 	@Test
@@ -167,8 +168,8 @@ public class ServicioClienteRestTest {
 		lista[0]=serv;
 		lista[1]=serv1;
 		
-		assertEquals(delegado.findAllServicios(),lista);
 		when(restTemplate.getForObject(REST_URI + "api/servicios/findAll", Tmio1Servicio[].class)).thenReturn(lista);
+		assertEquals(delegado.findAllServicios(),lista);
 	}
 	
 	//TODO
@@ -183,8 +184,6 @@ public class ServicioClienteRestTest {
 		
 	}
 	
-	//TODO
-	@Test
 	public void testfindByDate () {
 		Tmio1Servicio serv = new Tmio1Servicio();
 		serv.setPlaneID("0");
@@ -192,6 +191,14 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Conductore(conductore1);
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
+		
+		Tmio1Servicio[] lista = new Tmio1Servicio[2];
+		lista[0]=serv;		
+		
+		Date d = new Date(1999, 5, 26);
+		String date = d.getYear()+"_"+d.getMonth()+"_"+d.getDate();
+		when(restTemplate.getForObject(REST_URI + "api/servicios/findByDate/" + date,Tmio1Servicio[].class));
+		assertEquals(delegado.findByDate(d), lista);
 	}
 	
 	@Test
@@ -203,8 +210,8 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
-		assertEquals(delegado.actualizarServicio(serv),serv);
 		when(restTemplate.patchForObject(REST_URI + "api/servicios/update", serv, Tmio1Servicio.class)).thenReturn(serv);
+		assertEquals(delegado.actualizarServicio(serv),serv);
 	}
 	
 	@Test
@@ -216,8 +223,8 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
-		assertEquals(delegado.findByPlaneID(serv.getPlaneID()),serv);
 		when( restTemplate.getForObject(REST_URI + "api/servicios/findByPlaneID/" + serv.getPlaneID(),Tmio1Servicio.class)).thenReturn(serv);
+		assertEquals(delegado.findByPlaneID(serv.getPlaneID()),serv);
 
 	}
 	

@@ -39,8 +39,8 @@ public class BusClienteRestTest {
 		bus.setPlaca("ABC");
 		bus.setTipo(TipoBus.T);
 		
-		assertEquals(delegado.agregarBus(bus),bus);
 		when(restTemplate.postForEntity(REST_URI+"api/buses/add", bus, Tmio1Bus.class).getBody()).thenReturn(bus);
+		assertEquals(delegado.agregarBus(bus),bus);
 	}
 	
 	@Test
@@ -64,8 +64,8 @@ public class BusClienteRestTest {
 		lista[0] = bus;
 		lista[1] = bus1;
 		
-		assertEquals(delegado.findAllBuses(),lista);
 		when(restTemplate.getForObject(REST_URI + "api/buses/findAll", Tmio1Bus[].class)).thenReturn(lista);
+		assertEquals(delegado.findAllBuses(),lista);
 	}
 	
 	@Test
@@ -77,7 +77,7 @@ public class BusClienteRestTest {
 		tiposBus[2]=TipoBus.P;
 		
 		when(restTemplate.getForObject(REST_URI+"api/buses/findTipos", TipoBus[].class)).thenReturn(tiposBus);
-		
+		assertEquals(delegado.obtenerTipos(), tiposBus);
 	}
 	
 }

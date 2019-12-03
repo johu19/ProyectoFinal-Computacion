@@ -26,7 +26,7 @@
 						
 						
 						<div class="form-group col-md-6">
-							<label for="tmio1Ruta1" class="col-form-label">Ruta 1</label> <select
+							<label for="tmio1Ruta1" class="col-form-label">Ruta</label> <select
 								th:field="*{tmio1Ruta1}">
 								<option th:each="ruta : ${rutas}" th:value="${ruta.id}"
 									class="form-control" th:text="${ruta.numero}"
@@ -34,6 +34,9 @@
 							</select> <span th:if="${#fields.hasErrors('tmio1Ruta1')}"
 								th:errors="*{tmio1Ruta1}" class="text-danger"></span>
 						</div>
+						
+						<!-- 
+						
 						<div class="form-group col-md-6">
 							<label for="tmio1Ruta2" class="col-form-label">Ruta 2</label> <select
 								th:field="*{tmio1Ruta2}">
@@ -43,8 +46,10 @@
 							</select> <span th:if="${#fields.hasErrors('tmio1Ruta2')}"
 								th:errors="*{tmio1Ruta2}" class="text-danger"></span>
 						</div>
+						
+						 -->
 						<div class="form-group col-md-6">
-							<label for="tmio1Sitio1" class="col-form-label">Sitio 1</label> <select
+							<label for="tmio1Sitio1" class="col-form-label">Sitio</label> <select
 								th:field="*{tmio1Sitio1}">
 								<option th:each="sitio : ${sitios}" th:value="${sitio.id}"
 									class="form-control" th:text="${sitio.nombre}"
@@ -52,6 +57,8 @@
 							</select> <span th:if="${#fields.hasErrors('tmio1Sitio1')}"
 								th:errors="*{tmio1Sitio1}" class="text-danger"></span>
 						</div>
+						
+						<!-- 
 						
 						<div class="form-group col-md-6">
 							<label for="tmio1Sitio2" class="col-form-label">Sitio 2</label> <select
@@ -63,7 +70,7 @@
 								th:errors="*{tmio1Sitio2}" class="text-danger"></span>
 						</div>
 						
-						
+						 -->
 						
 					</div>
 					<div class="row">

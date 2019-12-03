@@ -29,21 +29,18 @@ public class Tmio1Servicio implements Serializable {
 	@NotNull(message="Seleccione el bus")
 	@ManyToOne
 	@JoinColumn(name="id_bus", insertable=false, updatable=false)
-	@JsonIgnore
 	private Tmio1Bus tmio1Bus;
 
 	//bi-directional many-to-one association to Tmio1Conductore
 	@NotNull(message="Seleccione el conductor")
 	@ManyToOne
 	@JoinColumn(name="cedula_conductor", insertable=false, updatable=false)
-	@JsonIgnore
 	private Tmio1Conductore tmio1Conductore;
 
 	//bi-directional many-to-one association to Tmio1Ruta
 	@NotNull(message="Seleccione la ruta")
 	@ManyToOne
 	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
-	@JsonIgnore
 	private Tmio1Ruta tmio1Ruta;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -73,32 +70,31 @@ public class Tmio1Servicio implements Serializable {
 		this.id = id;
 	}
 
-	@JsonIgnore
 	public Tmio1Bus getTmio1Bus() {
 		return this.tmio1Bus;
 	}
 
-	@JsonIgnore
+
 	public void setTmio1Bus(Tmio1Bus tmio1Bus) {
 		this.tmio1Bus = tmio1Bus;
 	}
 
-	@JsonIgnore
+
 	public Tmio1Conductore getTmio1Conductore() {
 		return this.tmio1Conductore;
 	}
 
-	@JsonIgnore
+
 	public void setTmio1Conductore(Tmio1Conductore tmio1Conductore) {
 		this.tmio1Conductore = tmio1Conductore;
 	}
 
-	@JsonIgnore
+
 	public Tmio1Ruta getTmio1Ruta() {
 		return this.tmio1Ruta;
 	}
 
-	@JsonIgnore
+
 	public void setTmio1Ruta(Tmio1Ruta tmio1Ruta) {
 		this.tmio1Ruta = tmio1Ruta;
 	}

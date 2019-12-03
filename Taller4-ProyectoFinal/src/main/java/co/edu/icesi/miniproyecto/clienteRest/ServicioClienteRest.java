@@ -47,13 +47,14 @@ public class ServicioClienteRest {
 		}
 	}
 
-	public void borrarServicio(Tmio1ServicioPK pk) {
-		restTemplate.delete(REST_URI + "api/servicios/borrar", pk);
+	public void borrarServicio(String planeID) {
+		restTemplate.delete(REST_URI + "api/servicios/borrar/"+planeID);
 
 	}
 
 	public Iterable<Tmio1Servicio> findByDate(Date d) {
-		Tmio1Servicio[] servs = restTemplate.getForObject(REST_URI + "api/servicios/findByDate/" + d.toString(),
+		String date = d.getYear()+"_"+d.getMonth()+"_"+d.getDate();
+		Tmio1Servicio[] servs = restTemplate.getForObject(REST_URI + "api/servicios/findByDate/" + date,
 				Tmio1Servicio[].class);
 		List<Tmio1Servicio> servsL;
 		try {

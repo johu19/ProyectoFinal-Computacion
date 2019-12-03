@@ -36,15 +36,16 @@ public class Servicio_ServicioRest {
 		return serv.findAllServicios();
 	}
 
-	@DeleteMapping("/api/servicios/borrar")
-	public void borrarServicio(@RequestBody Tmio1ServicioPK id) {
-		serv.eliminarServicio(id);
+	@DeleteMapping("/api/servicios/borrar/{id}")
+	public void borrarServicio(@PathVariable String id) {
+		serv.eliminarServicio(serv.findByPlaneID(id).getId());
 	}
 
 	@GetMapping("/api/servicios/findByDate/{d}")
 	public Iterable<Tmio1Servicio> findByDate(@PathVariable String d) {
-//		return serv.findByDate(d);
-		return null;
+		String[] datos = d.split("_");
+		Date date = new Date(Integer.parseInt(datos[0]),Integer.parseInt(datos[1]),Integer.parseInt(datos[2]));
+		return serv.findByDate(date);
 	}
 
 	@PatchMapping("/api/servicios/update")

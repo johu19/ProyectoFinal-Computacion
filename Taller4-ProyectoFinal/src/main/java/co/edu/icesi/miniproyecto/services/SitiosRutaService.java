@@ -51,8 +51,8 @@ public class SitiosRutaService implements ISitiosRutaService {
 		Tmio1SitiosRuta old = repos.findByPlaneId(sr.getPlaneID()).get(0);
 		repos.delete(old);
 		Tmio1SitiosRutaPK newPK = new Tmio1SitiosRutaPK();
-		newPK.setIdRuta(sr.getTmio1Ruta1().getId());
-		newPK.setIdSitio(sr.getTmio1Sitio1().getId());
+		newPK.setIdRuta(sr.getTmio1Ruta().getId());
+		newPK.setIdSitio(sr.getTmio1Sitio().getId());
 		sr.setPlaneID(newPK.getIdRuta()+"_"+newPK.getIdSitio());
 		sr.setId(newPK);
 		repos.save(sr);

@@ -25,14 +25,16 @@
 					<div class="row">
 
 						<div class="form-group col-md-6">
-							<label for="tmio1Ruta1" class="col-form-label">Ruta 1</label> <select
-								th:field="*{tmio1Ruta1}">
+							<label for="tmio1Ruta" class="col-form-label">Ruta</label> <select
+								th:field="*{tmio1Ruta}">
 								<option th:each="ruta : ${rutas}" th:value="${ruta.id}"
 									class="form-control" th:text="${ruta.numero}"
-									th:selected="${sr.tmio1Ruta1=ruta}"></option>
-							</select> <span th:if="${#fields.hasErrors('tmio1Ruta1')}"
-								th:errors="*{tmio1Ruta1}" class="text-danger"></span>
+									th:selected="${sr.tmio1Ruta=ruta}"></option>
+							</select> <span th:if="${#fields.hasErrors('tmio1Ruta')}"
+								th:errors="*{tmio1Ruta}" class="text-danger"></span>
 						</div>
+						
+						<!--  
 						<div class="form-group col-md-6">
 							<label for="tmio1Ruta2" class="col-form-label">Ruta 2</label> <select
 								th:field="*{tmio1Ruta2}">
@@ -43,29 +45,31 @@
 								th:errors="*{tmio1Ruta2}" class="text-danger"></span>
 						</div>
 
+-->
 
 
 
 						<div class="form-group col-md-6">
-							<label for="tmio1Sitio1" class="col-form-label">Sitio 1</label> <select
-								th:field="*{tmio1Sitio1}">
+							<label for="tmio1Sitio" class="col-form-label">Sitio</label> <select
+								th:field="*{tmio1Sitio}">
 								<option th:each="sitio : ${sitios}" th:value="${sitio.id}"
-									class="form-control" th:text="${sitio.id}"
-									th:selected="${sr.tmio1Sitio1=sitio}"></option>
-							</select> <span th:if="${#fields.hasErrors('tmio1Sitio1')}"
-								th:errors="*{tmio1Sitio1}" class="text-danger"></span>
+									class="form-control" th:text="${sitio.nombre}"
+									th:selected="${sr.tmio1Sitio=sitio}"></option>
+							</select> <span th:if="${#fields.hasErrors('tmio1Sitio')}"
+								th:errors="*{tmio1Sitio}" class="text-danger"></span>
 						</div>
 
+	<!--  						
 						<div class="form-group col-md-6">
 							<label for="tmio1Sitio2" class="col-form-label">Sitio 2</label> <select
 								th:field="*{tmio1Sitio2}">
 								<option th:each="sitio : ${sitios}" th:value="${sitio.id}"
-									class="form-control" th:text="${sitio.id}"
+									class="form-control" th:text="${sitio.nombre}"
 									th:selected="${sr.tmio1Sitio2=sitio}"></option>
 							</select> <span th:if="${#fields.hasErrors('tmio1Sitio2')}"
 								th:errors="*{tmio1Sitio2}" class="text-danger"></span>
 						</div>
-
+-->
 
 
 

@@ -1,6 +1,7 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,14 +19,18 @@ import co.edu.icesi.miniproyecto.servicioRest.ConductoreServicioRest;
 
 public class ConductoreClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private ConductoreClienteRest delegado;
 	
 	@Mock
-	private ConductoreServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	@BeforeMethod(alwaysRun = true)
 	public void init() {
 		delegado = new ConductoreClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 	}
 	
 	@Test
@@ -35,7 +41,9 @@ public class ConductoreClienteRestTest {
 		conductor.setFechaNacimiento((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/1980"));
 		conductor.setFechaContratacion((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
 		conductor.setNombre("Arroyo");
-		when(mock.agregarConductor(conductor)).thenReturn(conductor);
+		
+		assertEquals(delegado.agregarConductor(conductor),conductor);
+		when(restTemplate.postForEntity(REST_URI+"api/conductore/add", conductor, Tmio1Conductore.class).getBody()).thenReturn(conductor);
 	}
 	
 	@Test
@@ -54,11 +62,12 @@ public class ConductoreClienteRestTest {
 		conductor1.setFechaContratacion((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
 		conductor1.setNombre("Rigo");
 		
-		List<Tmio1Conductore> lista = new ArrayList<Tmio1Conductore>();
-		lista.add(conductor);
-		lista.add(conductor1);
+		Tmio1Conductore[] lista = new Tmio1Conductore[2];
+		lista[0]=conductor;
+		lista[1]=conductor1;
 		
-		when(mock.findAllConductores()).thenReturn(lista);
+		assertEquals(delegado.findAllConductore(),lista);
+		when(restTemplate.getForObject(REST_URI+"api/conductore/findAll", Tmio1Conductore[].class)).thenReturn(lista);
 	}
 	
 }

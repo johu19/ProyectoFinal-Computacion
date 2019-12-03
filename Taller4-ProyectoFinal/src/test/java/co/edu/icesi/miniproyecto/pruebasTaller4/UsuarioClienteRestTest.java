@@ -1,10 +1,12 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.Test;
 
 import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
@@ -14,10 +16,12 @@ import co.edu.icesi.miniproyecto.servicioRest.UsuarioServicioRest;
 
 public class UsuarioClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private UsuarioClienteRest delegado;
 	
 	@Mock
-	private UsuarioServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	@Test
 	public void testagregarUsuario () {
@@ -27,7 +31,8 @@ public class UsuarioClienteRestTest {
 		usuario.setType(TipoUsuario.Administrador);
 		usuario.setUsername("pepe");
 		
-		when(mock.agregarUsuario(usuario)).thenReturn(usuario);
+		assertEquals(delegado.agregarUsuario(usuario),usuario);
+		when(restTemplate.postForEntity(REST_URI+"api/usuarios/add",usuario, Usuario.class).getBody()).thenReturn(usuario);
 	}
 	
 	@Test
@@ -38,6 +43,7 @@ public class UsuarioClienteRestTest {
 		usuario.setType(TipoUsuario.Administrador);
 		usuario.setUsername("pepe");
 		
-		when(mock.findById(usuario.getUsername())).thenReturn(usuario);
+		assertEquals(delegado.findById(usuario.getUsername()),usuario);
+		when(restTemplate.getForObject(REST_URI+"api/usuarios/findById/"+usuario.getUsername(), Usuario.class)).thenReturn(usuario);
 	}
 }

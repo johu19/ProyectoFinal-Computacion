@@ -1,12 +1,14 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,6 +21,8 @@ import co.edu.icesi.miniproyecto.servicioRest.SitiosRutaServicioRest;
 
 public class SitiosRutaClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private SitiosRutaClienteRest delegado;
 	
 	private Tmio1Ruta ruta1;
@@ -28,7 +32,7 @@ public class SitiosRutaClienteRestTest {
 	private Tmio1Sitio sitio2;
 	
 	@Mock
-	private SitiosRutaServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	public void setupRutas () {
 		ruta1 = new Tmio1Ruta();
@@ -52,6 +56,7 @@ public class SitiosRutaClienteRestTest {
 		ruta2.setNumero("T31");
 	}
 	
+	//TODO
 	public void setupSitios() {
 		sitio1 = new Tmio1Sitio();
 		
@@ -62,6 +67,7 @@ public class SitiosRutaClienteRestTest {
 	public void init() {
 		delegado = new SitiosRutaClienteRest();
 		setupRutas();
+		setupSitios();
 	}
 	
 	@Test
@@ -79,7 +85,8 @@ public class SitiosRutaClienteRestTest {
 		sr.setTmio1Sitio1(sitio1);
 		sr.setTmio1Sitio2(sitio2);
 		
-		when(mock.agregarSitiosRuta(sr)).thenReturn(sr);
+		assertEquals(delegado.agregarSitiosRuta(sr),sr);
+		when(restTemplate.postForEntity(REST_URI + "api/sr/add", sr, Tmio1SitiosRuta.class).getBody()).thenReturn(sr);
 	}
 	
 	@Test
@@ -110,13 +117,15 @@ public class SitiosRutaClienteRestTest {
 		sr1.setTmio1Sitio1(sitio2);
 		sr1.setTmio1Sitio2(sitio1);
 		
-		List<Tmio1SitiosRuta> lista = new ArrayList<Tmio1SitiosRuta>();
-		lista.add(sr);
-		lista.add(sr1);
+		Tmio1SitiosRuta[] lista = new Tmio1SitiosRuta[2];
+		lista[0]=sr;
+		lista[1]=sr1;
 		
-		when(mock.findAllSitiosRuta()).thenReturn(lista);
+		assertEquals(delegado.findAllSitiosRuta(),lista);
+		when(restTemplate.getForObject(REST_URI + "api/sr/findAll", Tmio1SitiosRuta[].class)).thenReturn(lista);
 	}
 	
+	//TODO
 	@Test
 	public void testborrarSitiosRuta () {
 
@@ -124,9 +133,24 @@ public class SitiosRutaClienteRestTest {
 	
 	@Test
 	public void testactualizarSitiosRuta () {
-
+		Tmio1SitiosRuta sr = new Tmio1SitiosRuta();
+		
+		Tmio1SitiosRutaPK id = new Tmio1SitiosRutaPK();
+		id.setIdRuta(ruta1.getId());
+		id.setIdSitio(ruta2.getId());
+		
+		sr.setId(id);
+		sr.setPlaneID("0");
+		sr.setTmio1Ruta1(ruta1);
+		sr.setTmio1Ruta2(ruta2);
+		sr.setTmio1Sitio1(sitio1);
+		sr.setTmio1Sitio2(sitio2);
+		
+		assertEquals(delegado.actualizarSitiosRuta(sr),sr);
+		when(restTemplate.patchForObject(REST_URI + "api/sr/update", sr, Tmio1SitiosRuta.class)).thenReturn(sr);
 	}
 	
+	//TODO
 	@Test
 	public void testfindByPlanedId () {
 

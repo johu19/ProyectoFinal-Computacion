@@ -1,12 +1,9 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.mockito.Mock;
 import org.springframework.web.client.RestTemplate;
@@ -16,18 +13,21 @@ import org.testng.annotations.Test;
 import co.edu.icesi.miniproyecto.clienteRest.BusClienteRest;
 import co.edu.icesi.miniproyecto.model.TipoBus;
 import co.edu.icesi.miniproyecto.model.Tmio1Bus;
-import co.edu.icesi.miniproyecto.servicioRest.BusServicioRest;
 
 public class BusClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private BusClienteRest delegado;
 	
 	@Mock
-	private BusServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	@BeforeMethod(alwaysRun = true)
 	public void init() {
 		delegado = new BusClienteRest();
+		restTemplate = new RestTemplate();
+		delegado.setRestTemplate(restTemplate);
 	}
 	
 	@Test
@@ -38,7 +38,9 @@ public class BusClienteRestTest {
 		bus.setModelo(new BigDecimal(10));
 		bus.setPlaca("ABC");
 		bus.setTipo(TipoBus.T);
-		when(mock.agregarBus(bus)).thenReturn(bus);
+		
+		assertEquals(delegado.agregarBus(bus),bus);
+		when(restTemplate.postForEntity(REST_URI+"api/buses/add", bus, Tmio1Bus.class).getBody()).thenReturn(bus);
 	}
 	
 	@Test
@@ -57,17 +59,19 @@ public class BusClienteRestTest {
 		bus1.setPlaca("BCD");
 		bus1.setTipo(TipoBus.P);
 			
-		List<Tmio1Bus> lista = new ArrayList<Tmio1Bus>();
-		lista.add(bus);
-		lista.add(bus1);
+		Tmio1Bus[] lista = new Tmio1Bus[2];
 		
-		when(mock.findAll()).thenReturn(lista);
+		lista[0] = bus;
+		lista[1] = bus1;
+		
+		assertEquals(delegado.findAllBuses(),lista);
+		when(restTemplate.getForObject(REST_URI + "api/buses/findAll", Tmio1Bus[].class)).thenReturn(lista);
 	}
 	
+	//TODO
 	@Test
 	public void testobtenerTipos () {
 		
 	}
-	
 	
 }

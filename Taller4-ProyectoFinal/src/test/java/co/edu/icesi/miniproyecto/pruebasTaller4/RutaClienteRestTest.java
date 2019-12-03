@@ -1,12 +1,14 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,10 +19,12 @@ import co.edu.icesi.miniproyecto.servicioRest.RutaServicioRest;
 
 public class RutaClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private RutaClienteRest delegado;
 	
 	@Mock
-	private RutaServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	@BeforeMethod(alwaysRun = true)
 	public void init() {
@@ -38,7 +42,9 @@ public class RutaClienteRestTest {
 		ruta.setHoraFin(new BigDecimal(82800));
 		ruta.setHoraInicio(new BigDecimal(18000));
 		ruta.setNumero("T31");
-		when(mock.agregarRuta(ruta)).thenReturn(ruta);
+		
+		assertEquals(delegado.agregarRuta(ruta),ruta);
+		when(restTemplate.postForEntity(REST_URI+"api/rutas/add",ruta, Tmio1Ruta.class).getBody()).thenReturn(ruta);
 		
 	}
 
@@ -64,11 +70,12 @@ public class RutaClienteRestTest {
 		ruta1.setHoraInicio(new BigDecimal(18000));
 		ruta1.setNumero("E21");
 		
-		List<Tmio1Ruta> lista = new ArrayList<Tmio1Ruta>();
-		lista.add(ruta);
-		lista.add(ruta1);
+		Tmio1Ruta[] lista = new Tmio1Ruta[2];
+		lista[0]=ruta;
+		lista[1]=ruta1;
 		
-		when(mock.findAllRutas()).thenReturn(lista);
+		assertEquals(delegado.findAllRutas(),lista);
+		when(restTemplate.getForObject(REST_URI+"api/rutas/findAll", Tmio1Ruta[].class)).thenReturn(lista);
 	}
 	
 }

@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -44,7 +45,7 @@ public class SitioClienteRestTest {
 	private Tmio1Servicio serv2; 
 	
 	@Mock
-	private SitioServicioRest mock;
+	private RestTemplate restTemplate;
 
 	public void setupBuses () {
 		bus1 = new Tmio1Bus();
@@ -141,6 +142,7 @@ public class SitioClienteRestTest {
 		setupServicios();
 	}
 	
+	//TODO
 	@Test
 	public void testagregarSitio () {
 		Tmio1Sitio sitio = new Tmio1Sitio();
@@ -152,6 +154,7 @@ public class SitioClienteRestTest {
 		sitio.setTmio1SitiosRutas2(tmio1SitiosRutas2);
 	}
 	
+	//TODO
 	@Test
 	public void testfindAllSitios () {
 

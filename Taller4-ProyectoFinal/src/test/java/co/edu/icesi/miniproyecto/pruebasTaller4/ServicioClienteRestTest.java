@@ -1,6 +1,7 @@
 package co.edu.icesi.miniproyecto.pruebasTaller4;
 
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mockito.Mock;
+import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,6 +25,8 @@ import co.edu.icesi.miniproyecto.servicioRest.Servicio_ServicioRest;
 
 public class ServicioClienteRestTest {
 
+	public final static String REST_URI = "http://localhost:8080/";
+	
 	private ServicioClienteRest delegado;
 	
 	private Tmio1Bus bus1;
@@ -39,7 +43,7 @@ public class ServicioClienteRestTest {
 	private Tmio1ServicioPK servicioPk3;
 	
 	@Mock
-	private Servicio_ServicioRest mock;
+	private RestTemplate restTemplate;
 	
 	public void setupBuses () {
 		bus1 = new Tmio1Bus();
@@ -92,21 +96,30 @@ public class ServicioClienteRestTest {
 		ruta2.setDiaInicio(new BigDecimal(1));
 		ruta2.setHoraFin(new BigDecimal(82800));
 		ruta2.setHoraInicio(new BigDecimal(18000));
-		ruta2.setNumero("T31");
+		ruta2.setNumero("E21");
 	}
 	
 	public void setupPks () throws ParseException {
 		servicioPk1 = new Tmio1ServicioPK();
 		servicioPk1.setFechaInicio((new SimpleDateFormat("MM/dd/yyyy")).parse("10/22/2019"));
 		servicioPk1.setFechaFin((new SimpleDateFormat("MM/dd/yyyy")).parse("12/22/2019"));
+		servicioPk1.setCedulaConductor(conductore1.getCedula());
+		servicioPk1.setIdBus(bus1.getId());
+		servicioPk1.setIdRuta(ruta1.getId());
 		
 		servicioPk2 = new Tmio1ServicioPK();
 		servicioPk2.setFechaInicio((new SimpleDateFormat("MM/dd/yyyy")).parse("10/22/2019"));
 		servicioPk2.setFechaFin((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
+		servicioPk2.setCedulaConductor(conductore2.getCedula());
+		servicioPk2.setIdBus(bus2.getId());
+		servicioPk2.setIdRuta(ruta2.getId());
 		
 		servicioPk3 = new Tmio1ServicioPK();
 		servicioPk3.setFechaInicio((new SimpleDateFormat("MM/dd/yyyy")).parse("08/22/2019"));
 		servicioPk3.setFechaFin((new SimpleDateFormat("MM/dd/yyyy")).parse("12/22/2019"));
+		servicioPk3.setCedulaConductor(conductore2.getCedula());
+		servicioPk3.setIdBus(bus2.getId());
+		servicioPk3.setIdRuta(ruta2.getId());
 		
 	}
 	
@@ -127,7 +140,9 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Conductore(conductore1);
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
-		when(mock.agregarServicio(serv)).thenReturn(serv);
+		
+		assertEquals(delegado.agregarServicio(serv),serv);
+		when(restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody()).thenReturn(serv);
 	}
 	
 	@Test
@@ -146,13 +161,15 @@ public class ServicioClienteRestTest {
 		serv1.setTmio1Ruta(ruta2);
 		serv1.setId(servicioPk2);
 		
-		List<Tmio1Servicio> lista = new ArrayList<Tmio1Servicio>();
-		lista.add(serv);
-		lista.add(serv1);
+		Tmio1Servicio[] lista = new Tmio1Servicio[2];
+		lista[0]=serv;
+		lista[1]=serv1;
 		
-		when(mock.findAllServicios()).thenReturn(lista);
+		assertEquals(delegado.findAllServicios(),lista);
+		when(restTemplate.getForObject(REST_URI + "api/servicios/findAll", Tmio1Servicio[].class)).thenReturn(lista);
 	}
 	
+	//TODO
 	@Test
 	public void testborrarServicio () {
 		Tmio1Servicio serv = new Tmio1Servicio();
@@ -164,6 +181,7 @@ public class ServicioClienteRestTest {
 		
 	}
 	
+	//TODO
 	@Test
 	public void testfindByDate () {
 		Tmio1Servicio serv = new Tmio1Servicio();
@@ -183,7 +201,8 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
-		when(mock.actualizarServicio(serv)).thenReturn(serv);
+		assertEquals(delegado.actualizarServicio(serv),serv);
+		when(restTemplate.patchForObject(REST_URI + "api/servicios/update", serv, Tmio1Servicio.class)).thenReturn(serv);
 	}
 	
 	@Test
@@ -195,7 +214,9 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
-		when(mock.findByPlaneID(serv.getPlaneID())).thenReturn(serv);
+		assertEquals(delegado.findByPlaneID(serv.getPlaneID()),serv);
+		when( restTemplate.getForObject(REST_URI + "api/servicios/findByPlaneID/" + serv.getPlaneID(),Tmio1Servicio.class)).thenReturn(serv);
+
 	}
 	
 }

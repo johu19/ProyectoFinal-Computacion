@@ -88,6 +88,14 @@ public class BusClienteRest {
 //
 //}
 	
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
+
 	public Tmio1Bus agregarBus(Tmio1Bus bus) {
 		return restTemplate.postForEntity(REST_URI+"api/buses/add", bus, Tmio1Bus.class).getBody();
 	}

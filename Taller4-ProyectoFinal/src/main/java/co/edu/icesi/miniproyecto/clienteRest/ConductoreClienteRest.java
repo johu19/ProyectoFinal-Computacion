@@ -75,4 +75,12 @@ public class ConductoreClienteRest {
 		}
 	}
 
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
+
 }

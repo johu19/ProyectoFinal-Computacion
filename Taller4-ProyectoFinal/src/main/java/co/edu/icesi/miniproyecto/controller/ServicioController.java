@@ -190,15 +190,13 @@ public class ServicioController {
 						return "servs/error-fechas";
 					}
 				}
-
 		}
 		return "redirect:/servs/";
 	}
 
 	@GetMapping("/servs/del/{planeID}")
 	public String deleteServicio(@PathVariable("planeID") String planeID) {
-		Tmio1ServicioPK pk = delegadoServicio.findByPlaneID(planeID).getId();
-		delegadoServicio.borrarServicio(pk);
+		delegadoServicio.borrarServicio(planeID);
 		return "redirect:/servs/";
 	}
 

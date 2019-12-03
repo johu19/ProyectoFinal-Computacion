@@ -9,6 +9,8 @@ import javax.validation.constraints.Positive;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
@@ -62,6 +64,7 @@ public class Tmio1Ruta implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1Servicio
 	@OneToMany(mappedBy="tmio1Ruta")
+	@JsonIgnore
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
@@ -69,12 +72,10 @@ public class Tmio1Ruta implements Serializable {
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
-	@OneToMany(mappedBy="tmio1Ruta1")
-	private List<Tmio1SitiosRuta> tmio1SitiosRutas1;
+	@OneToMany(mappedBy="tmio1Ruta")
+	@JsonIgnore
+	private List<Tmio1SitiosRuta> tmio1SitiosRutas;
 
-	//bi-directional many-to-one association to Tmio1SitiosRuta
-	@OneToMany(mappedBy="tmio1Ruta2")
-	private List<Tmio1SitiosRuta> tmio1SitiosRutas2;
 
 	public Tmio1Ruta() {
 	}
@@ -103,39 +104,7 @@ public class Tmio1Ruta implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	
-	
-//	public Dia getDiaFin() {
-//		return this.diaFin;
-//	}
-//
-//	public void setDiaFin(Dia diaFin) {
-//		this.diaFin = diaFin;
-//	}
-//
-//	public Dia getDiaInicio() {
-//		return this.diaInicio;
-//	}
-//
-//	public void setDiaInicio(Dia diaInicio) {
-//		this.diaInicio = diaInicio;
-//	}
-//
-//	public LocalTime getHoraFin() {
-//		return this.horaFin;
-//	}
-//
-//	public void setHoraFin(LocalTime horaFin) {
-//		this.horaFin = horaFin;
-//	}
-//
-//	public LocalTime getHoraInicio() {
-//		return this.horaInicio;
-//	}
-//
-//	public void setHoraInicio(LocalTime horaInicio) {
-//		this.horaInicio = horaInicio;
-//	}
+
 
 	public BigDecimal getDiaFin() {
 		return diaFin;
@@ -221,48 +190,48 @@ public class Tmio1Ruta implements Serializable {
 		return tmio1ServiciosSitio;
 	}
 
-	public List<Tmio1SitiosRuta> getTmio1SitiosRutas1() {
-		return this.tmio1SitiosRutas1;
+	public List<Tmio1SitiosRuta> getTmio1SitiosRutas() {
+		return this.tmio1SitiosRutas;
 	}
 
-	public void setTmio1SitiosRutas1(List<Tmio1SitiosRuta> tmio1SitiosRutas1) {
-		this.tmio1SitiosRutas1 = tmio1SitiosRutas1;
+	public void setTmio1SitiosRutas(List<Tmio1SitiosRuta> tmio1SitiosRutas1) {
+		this.tmio1SitiosRutas = tmio1SitiosRutas1;
 	}
 
 	public Tmio1SitiosRuta addTmio1SitiosRutas1(Tmio1SitiosRuta tmio1SitiosRutas1) {
-		getTmio1SitiosRutas1().add(tmio1SitiosRutas1);
-		tmio1SitiosRutas1.setTmio1Ruta1(this);
+		getTmio1SitiosRutas().add(tmio1SitiosRutas1);
+		tmio1SitiosRutas1.setTmio1Ruta(this);
 
 		return tmio1SitiosRutas1;
 	}
 
 	public Tmio1SitiosRuta removeTmio1SitiosRutas1(Tmio1SitiosRuta tmio1SitiosRutas1) {
-		getTmio1SitiosRutas1().remove(tmio1SitiosRutas1);
-		tmio1SitiosRutas1.setTmio1Ruta1(null);
+		getTmio1SitiosRutas().remove(tmio1SitiosRutas1);
+		tmio1SitiosRutas1.setTmio1Ruta(null);
 
 		return tmio1SitiosRutas1;
 	}
 
-	public List<Tmio1SitiosRuta> getTmio1SitiosRutas2() {
-		return this.tmio1SitiosRutas2;
-	}
-
-	public void setTmio1SitiosRutas2(List<Tmio1SitiosRuta> tmio1SitiosRutas2) {
-		this.tmio1SitiosRutas2 = tmio1SitiosRutas2;
-	}
-
-	public Tmio1SitiosRuta addTmio1SitiosRutas2(Tmio1SitiosRuta tmio1SitiosRutas2) {
-		getTmio1SitiosRutas2().add(tmio1SitiosRutas2);
-		tmio1SitiosRutas2.setTmio1Ruta2(this);
-
-		return tmio1SitiosRutas2;
-	}
-
-	public Tmio1SitiosRuta removeTmio1SitiosRutas2(Tmio1SitiosRuta tmio1SitiosRutas2) {
-		getTmio1SitiosRutas2().remove(tmio1SitiosRutas2);
-		tmio1SitiosRutas2.setTmio1Ruta2(null);
-
-		return tmio1SitiosRutas2;
-	}
+//	public List<Tmio1SitiosRuta> getTmio1SitiosRutas2() {
+//		return this.tmio1SitiosRutas2;
+//	}
+//
+//	public void setTmio1SitiosRutas2(List<Tmio1SitiosRuta> tmio1SitiosRutas2) {
+//		this.tmio1SitiosRutas2 = tmio1SitiosRutas2;
+//	}
+//
+//	public Tmio1SitiosRuta addTmio1SitiosRutas2(Tmio1SitiosRuta tmio1SitiosRutas2) {
+//		getTmio1SitiosRutas2().add(tmio1SitiosRutas2);
+//		tmio1SitiosRutas2.setTmio1Ruta2(this);
+//
+//		return tmio1SitiosRutas2;
+//	}
+//
+//	public Tmio1SitiosRuta removeTmio1SitiosRutas2(Tmio1SitiosRuta tmio1SitiosRutas2) {
+//		getTmio1SitiosRutas2().remove(tmio1SitiosRutas2);
+//		tmio1SitiosRutas2.setTmio1Ruta2(null);
+//
+//		return tmio1SitiosRutas2;
+//	}
 
 }

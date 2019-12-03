@@ -23,15 +23,7 @@ import co.edu.icesi.miniproyecto.services.SitiosRutaService;
 @Controller
 public class SitiosRutaController {
 	
-	
-//	@Autowired
-//	private SitiosRutaService srServ;
-//	
-//	@Autowired
-//	private RutaService rutaServ;
-//	
-//	@Autowired
-//	private SitioService sitioServ;
+
 	
 	@Autowired
 	private SitiosRutaClienteRest delegadoSR;
@@ -75,8 +67,8 @@ public class SitiosRutaController {
 				try {
 
 					Tmio1SitiosRutaPK pk = new Tmio1SitiosRutaPK();
-					pk.setIdRuta(sr.getTmio1Ruta1().getId());
-					pk.setIdSitio(sr.getTmio1Sitio1().getId());
+					pk.setIdRuta(sr.getTmio1Ruta().getId());
+					pk.setIdSitio(sr.getTmio1Sitio().getId());
 					sr.setPlaneID(pk.getIdRuta()+"_"+pk.getIdSitio());
 					sr.setId(pk);
 					delegadoSR.agregarSitiosRuta(sr);
@@ -93,7 +85,7 @@ public class SitiosRutaController {
 	
 	
 	@GetMapping("/srs/edit/{planeID}")
-	public String showUpdateServicios(@PathVariable("planeID") String planeID, Model model) {
+	public String showUpdateSitiosRuta(@PathVariable("planeID") String planeID, Model model) {
 
 		Tmio1SitiosRuta sr = delegadoSR.findByPlanedId(planeID);
 		

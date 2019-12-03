@@ -14,6 +14,7 @@ import co.edu.icesi.miniproyecto.clienteRest.BusClienteRest;
 import co.edu.icesi.miniproyecto.clienteRest.ConductoreClienteRest;
 import co.edu.icesi.miniproyecto.clienteRest.RutaClienteRest;
 import co.edu.icesi.miniproyecto.clienteRest.SitioClienteRest;
+import co.edu.icesi.miniproyecto.clienteRest.SitiosRutaClienteRest;
 import co.edu.icesi.miniproyecto.clienteRest.UsuarioClienteRest;
 import co.edu.icesi.miniproyecto.daos.Tmio1RutaDao;
 import co.edu.icesi.miniproyecto.daos.Tmio1SitioDao;
@@ -24,6 +25,8 @@ import co.edu.icesi.miniproyecto.model.Tmio1Bus;
 import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 import co.edu.icesi.miniproyecto.model.Tmio1Sitio;
+import co.edu.icesi.miniproyecto.model.Tmio1SitiosRuta;
+import co.edu.icesi.miniproyecto.model.Tmio1SitiosRutaPK;
 import co.edu.icesi.miniproyecto.model.Usuario;
 import co.edu.icesi.miniproyecto.repositories.BusesRepository;
 import co.edu.icesi.miniproyecto.repositories.ConductoresRepository;
@@ -53,7 +56,8 @@ public class Taller3Application {
 	
 	@Bean
 	public CommandLineRunner demo(UsuarioClienteRest usuRest,
-			RutaClienteRest rutaRest, ConductoreClienteRest condRest, BusClienteRest busRest, SitioClienteRest sitioRest) {
+			RutaClienteRest rutaRest, ConductoreClienteRest condRest, 
+			BusClienteRest busRest, SitioClienteRest sitioRest, SitiosRutaClienteRest srRest) {
 		
 		return (args) -> {
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -128,7 +132,15 @@ public class Taller3Application {
 			cond.setFechaContratacion(new Date(1000000));
 			condRest.agregarConductor(cond);
 			
-			
+//			Tmio1SitiosRuta sr = new Tmio1SitiosRuta();
+//			sr.setTmio1Ruta(ruta1);
+//			sr.setTmio1Sitio(sitio1);
+//			Tmio1SitiosRutaPK pk = new Tmio1SitiosRutaPK();
+//			pk.setIdRuta(sr.getTmio1Ruta().getId());
+//			pk.setIdSitio(sr.getTmio1Sitio().getId());
+//			sr.setPlaneID(pk.getIdRuta()+"_"+pk.getIdSitio());
+//			sr.setId(pk);
+//			srRest.agregarSitiosRuta(sr);
 			
 		};
 	}

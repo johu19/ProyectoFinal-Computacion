@@ -174,6 +174,9 @@ public class SitioClienteRestTest {
 		Tmio1Sitio[] sitios = new Tmio1Sitio[1];
 		sitios[0]=sitio;
 		
+		restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody();
+		delegado.agregarSitio(sitio);
+		
 		when(restTemplate.getForObject(REST_URI+"api/sitios/findAll", Tmio1Sitio[].class)).thenReturn(sitios);
 		assertEquals(delegado.findAllSitios(), sitios);
 		
@@ -181,7 +184,18 @@ public class SitioClienteRestTest {
 	
 	@Test
 	public void testborrarSitio () {
+		Tmio1Sitio sitio = new Tmio1Sitio();
+		sitio.setDescripcion("aaa");
+		sitio.setId(1);
+		sitio.setNombre("sitio");
+		
+		restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody();
+		restTemplate.delete(REST_URI+"api/sitios/borrar/"+sitio.getId());
+		when(restTemplate.getForObject(REST_URI+"api/sitios/findById/"+sitio.getId(), Tmio1Sitio.class)).thenReturn(null);
 
+		delegado.agregarSitio(sitio);
+		delegado.borrarSitio(sitio.getId());
+		assertEquals(delegado.findById(sitio.getId()), null);
 	}
 	
 	public void testactualizarSitio () {
@@ -189,6 +203,9 @@ public class SitioClienteRestTest {
 		sitio.setDescripcion("bien");
 		sitio.setId(0);
 		sitio.setNombre("pacho");
+		
+		restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody();
+		delegado.agregarSitio(sitio);
 		
 		when(restTemplate.patchForObject(REST_URI+"api/sitios/update", sitio, Tmio1Sitio.class)).thenReturn(sitio);
 		assertEquals(delegado.actualizarSitio(sitio), sitio);
@@ -208,6 +225,11 @@ public class SitioClienteRestTest {
 		Tmio1Sitio[] sitios = new Tmio1Sitio[2];
 		sitios[0]=sitio;
 		sitios[1]=sitio1;
+		
+		restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody();
+		delegado.agregarSitio(sitio);
+		restTemplate.postForEntity(REST_URI+"api/sitios/add",sitio, Tmio1Sitio.class).getBody();
+		delegado.agregarSitio(sitio1);
 		
 		when(restTemplate.getForObject(REST_URI+"api/sitios/findById/"+sitio.getId(), Tmio1Sitio.class)).thenReturn(sitio);
 		assertEquals(delegado.findById(sitio.getId()), sitio);

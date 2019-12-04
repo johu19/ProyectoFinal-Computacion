@@ -168,11 +168,15 @@ public class ServicioClienteRestTest {
 		lista[0]=serv;
 		lista[1]=serv1;
 		
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody();
+		delegado.agregarServicio(serv);
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv1, Tmio1Servicio.class).getBody();
+		delegado.agregarServicio(serv1);
+		
 		when(restTemplate.getForObject(REST_URI + "api/servicios/findAll", Tmio1Servicio[].class)).thenReturn(lista);
 		assertEquals(delegado.findAllServicios(),lista);
 	}
 	
-	//TODO
 	@Test
 	public void testborrarServicio () {
 		Tmio1Servicio serv = new Tmio1Servicio();
@@ -181,6 +185,14 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Conductore(conductore1);
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
+		
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody();
+		restTemplate.delete(REST_URI + "api/servicios/borrar/"+serv.getPlaneID());
+		when( restTemplate.getForObject(REST_URI + "api/servicios/findByPlaneID/" + serv.getPlaneID(),Tmio1Servicio.class)).thenReturn(null);
+		
+		delegado.agregarServicio(serv);
+		delegado.borrarServicio(serv.getPlaneID());
+		assertEquals(delegado.findByPlaneID(serv.getPlaneID()), null);
 		
 	}
 	
@@ -194,6 +206,9 @@ public class ServicioClienteRestTest {
 		
 		Tmio1Servicio[] lista = new Tmio1Servicio[2];
 		lista[0]=serv;		
+		
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody();
+		delegado.agregarServicio(serv);
 		
 		Date d = new Date(1999, 5, 26);
 		String date = d.getYear()+"_"+d.getMonth()+"_"+d.getDate();
@@ -210,6 +225,9 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
 		
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody();
+		delegado.agregarServicio(serv);
+		
 		when(restTemplate.patchForObject(REST_URI + "api/servicios/update", serv, Tmio1Servicio.class)).thenReturn(serv);
 		assertEquals(delegado.actualizarServicio(serv),serv);
 	}
@@ -222,6 +240,9 @@ public class ServicioClienteRestTest {
 		serv.setTmio1Conductore(conductore1);
 		serv.setTmio1Ruta(ruta1);
 		serv.setId(servicioPk1);
+	
+		restTemplate.postForEntity(REST_URI + "api/servicios/add", serv, Tmio1Servicio.class).getBody();
+		delegado.agregarServicio(serv);
 		
 		when( restTemplate.getForObject(REST_URI + "api/servicios/findByPlaneID/" + serv.getPlaneID(),Tmio1Servicio.class)).thenReturn(serv);
 		assertEquals(delegado.findByPlaneID(serv.getPlaneID()),serv);

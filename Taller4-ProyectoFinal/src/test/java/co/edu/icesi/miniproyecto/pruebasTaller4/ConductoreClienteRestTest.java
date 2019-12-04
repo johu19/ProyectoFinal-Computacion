@@ -66,6 +66,11 @@ public class ConductoreClienteRestTest {
 		lista[0]=conductor;
 		lista[1]=conductor1;
 		
+		restTemplate.postForEntity(REST_URI+"api/conductore/add", conductor, Tmio1Conductore.class).getBody();
+		delegado.agregarConductor(conductor);
+		restTemplate.postForEntity(REST_URI+"api/conductore/add", conductor1, Tmio1Conductore.class).getBody();
+		delegado.agregarConductor(conductor1);
+		
 		when(restTemplate.getForObject(REST_URI+"api/conductore/findAll", Tmio1Conductore[].class)).thenReturn(lista);
 		assertEquals(delegado.findAllConductore(),lista);
 	}

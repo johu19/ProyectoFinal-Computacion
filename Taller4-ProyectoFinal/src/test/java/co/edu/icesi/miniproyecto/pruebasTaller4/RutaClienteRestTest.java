@@ -76,6 +76,11 @@ public class RutaClienteRestTest {
 		lista[0]=ruta;
 		lista[1]=ruta1;
 		
+		restTemplate.postForEntity(REST_URI+"api/rutas/add",ruta, Tmio1Ruta.class).getBody();
+		delegado.agregarRuta(ruta);
+		restTemplate.postForEntity(REST_URI+"api/rutas/add",ruta1, Tmio1Ruta.class).getBody();
+		delegado.agregarRuta(ruta1);
+		
 		when(restTemplate.getForObject(REST_URI+"api/rutas/findAll", Tmio1Ruta[].class)).thenReturn(lista);
 		assertEquals(delegado.findAllRutas(),lista);
 	}

@@ -64,6 +64,11 @@ public class BusClienteRestTest {
 		lista[0] = bus;
 		lista[1] = bus1;
 		
+		restTemplate.postForEntity(REST_URI+"api/buses/add", bus, Tmio1Bus.class).getBody();
+		delegado.agregarBus(bus);
+		restTemplate.postForEntity(REST_URI+"api/buses/add", bus1, Tmio1Bus.class).getBody();
+		delegado.agregarBus(bus1);
+		
 		when(restTemplate.getForObject(REST_URI + "api/buses/findAll", Tmio1Bus[].class)).thenReturn(lista);
 		assertEquals(delegado.findAllBuses(),lista);
 	}

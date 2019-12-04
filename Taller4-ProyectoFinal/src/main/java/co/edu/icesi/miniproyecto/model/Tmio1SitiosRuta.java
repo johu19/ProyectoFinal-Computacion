@@ -24,30 +24,16 @@ public class Tmio1SitiosRuta implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1Ruta
 	@ManyToOne
-	@NotNull(message="Seleccione la ruta 1")
+	@NotNull(message="Seleccione la ruta")
 	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
 	private Tmio1Ruta tmio1Ruta;
-	
-	
-//
-//	//bi-directional many-to-one association to Tmio1Ruta
-//	@ManyToOne
-//	@NotNull(message="Seleccione la ruta 2")
-//	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
-//	private Tmio1Ruta tmio1Ruta2;
 
 	//bi-directional many-to-one association to Tmio1Sitio
 	@ManyToOne
-	@NotNull(message="Seleccione el sitio 1")
+//	@NotNull(message="Seleccione el sitio")
 	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Sitio tmio1Sitio;
 
-//	//bi-directional many-to-one association to Tmio1Sitio
-//	@ManyToOne
-//	@NotNull(message="Seleccione el sitio 2")
-//	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
-//	@JsonIgnore
-//	private Tmio1Sitio tmio1Sitio2;
 
 	public Tmio1SitiosRuta() {
 	}
@@ -56,6 +42,16 @@ public class Tmio1SitiosRuta implements Serializable {
 	private String planeID;
 	
 	
+	@Column(name="sitio_id")
+	private Integer sitioID;
+	
+	
+	public Integer getSitioID() {
+		return sitioID;
+	}
+	public void setSitioID(Integer sitioID) {
+		this.sitioID = sitioID;
+	}
 	public String getPlaneID() {
 		return planeID;
 	}
@@ -75,39 +71,16 @@ public class Tmio1SitiosRuta implements Serializable {
 		return this.tmio1Ruta;
 	}
 
-
 	public void setTmio1Ruta(Tmio1Ruta tmio1Ruta1) {
 		this.tmio1Ruta = tmio1Ruta1;
 	}
-
-
-//	public Tmio1Ruta getTmio1Ruta2() {
-//		return this.tmio1Ruta2;
-//	}
-//
-//
-//	public void setTmio1Ruta2(Tmio1Ruta tmio1Ruta2) {
-//		this.tmio1Ruta2 = tmio1Ruta2;
-//	}
-
 
 	public Tmio1Sitio getTmio1Sitio() {
 		return this.tmio1Sitio;
 	}
 
-
 	public void setTmio1Sitio(Tmio1Sitio tmio1Sitio1) {
 		this.tmio1Sitio = tmio1Sitio1;
 	}
-
-
-//	public Tmio1Sitio getTmio1Sitio2() {
-//		return this.tmio1Sitio2;
-//	}
-//
-//
-//	public void setTmio1Sitio2(Tmio1Sitio tmio1Sitio2) {
-//		this.tmio1Sitio2 = tmio1Sitio2;
-//	}
 
 }

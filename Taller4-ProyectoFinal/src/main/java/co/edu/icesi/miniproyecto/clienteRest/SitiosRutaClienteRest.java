@@ -18,7 +18,7 @@ public class SitiosRutaClienteRest {
 	private RestTemplate restTemplate;
 
 	public SitiosRutaClienteRest() {
-		restTemplate= new RestTemplate();
+		restTemplate = new RestTemplate();
 		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
 		requestFactory.setConnectTimeout(1000);
 		requestFactory.setReadTimeout(1000);
@@ -43,7 +43,7 @@ public class SitiosRutaClienteRest {
 	}
 
 	public void borrarSitiosRuta(String planeID) {
-		restTemplate.delete(REST_URI + "api/sr/borrar/"+planeID);
+		restTemplate.delete(REST_URI + "api/sr/borrar/" + planeID);
 	}
 
 	public Tmio1SitiosRuta actualizarSitiosRuta(Tmio1SitiosRuta sr) {
@@ -51,7 +51,12 @@ public class SitiosRutaClienteRest {
 	}
 
 	public Tmio1SitiosRuta findByPlanedId(String planeID) {
-		// TODO Auto-generated method stub
+		try {
+			Tmio1SitiosRuta sr = restTemplate.getForObject(REST_URI + "api/sr/findByPlaneID/" + planeID,Tmio1SitiosRuta.class);
+			return sr;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

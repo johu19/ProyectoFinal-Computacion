@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1SitiosRuta;
 import co.edu.icesi.miniproyecto.model.Tmio1SitiosRutaPK;
 import co.edu.icesi.miniproyecto.services.SitiosRutaService;
@@ -49,6 +50,11 @@ public class SitiosRutaServicioRest {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	@GetMapping("api/sr/findByPlaneID/{planeID}")
+	public Tmio1SitiosRuta findByPlaneID(@PathVariable String planeID) {
+		return serv.findByPlanedId(planeID);
 	}
 
 }

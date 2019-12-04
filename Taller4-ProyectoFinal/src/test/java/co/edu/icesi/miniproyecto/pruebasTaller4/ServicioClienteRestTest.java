@@ -196,6 +196,7 @@ public class ServicioClienteRestTest {
 		
 	}
 	
+	@Test
 	public void testfindByDate () {
 		Tmio1Servicio serv = new Tmio1Servicio();
 		serv.setPlaneID("0");

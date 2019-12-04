@@ -35,13 +35,13 @@
 						</thead>
 						<tbody>
 							<tr th:each="sr : ${srs}">
-								<td th:text="${sr.tmio1Ruta}"></td>
-								<td th:text="${sr.tmio1Sitio}"></td>
+								<td th:text="${sr.tmio1Ruta.descripcion}"></td>
+								<td th:text="${sr.tmio1Sitio.nombre}"></td>
 								<td><a
-									th:href="@{/srs/edit/{planeID}(planeID=${servicio.planeID})}"
+									th:href="@{/srs/edit/{planeID}(planeID=${sr.planeID})}"
 									class="btn btn-primary"><i class="fas fa-calendar ml-2"></i></a></td>
 								<td><a
-									th:href="@{/srs/del/{planeID}(planeID=${servicio.planeID})}"
+									th:href="@{/srs/del/{planeID}(planeID=${sr.planeID})}"
 									class="btn btn-primary"><i
 										class="fas fa-calendar-times ml-2"></i></a></td>
 							</tr>

@@ -198,6 +198,7 @@ public class SitioClienteRestTest {
 		assertEquals(delegado.findById(sitio.getId()), null);
 	}
 	
+	@Test
 	public void testactualizarSitio () {
 		Tmio1Sitio sitio = new Tmio1Sitio();
 		sitio.setDescripcion("bien");
@@ -211,6 +212,7 @@ public class SitioClienteRestTest {
 		assertEquals(delegado.actualizarSitio(sitio), sitio);
 	}
 	
+	@Test
 	public void testfindById () {
 		Tmio1Sitio sitio = new Tmio1Sitio();
 		sitio.setDescripcion("bien");

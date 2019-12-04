@@ -53,7 +53,7 @@ public class Taller3Application {
 		SpringApplication.run(Taller3Application.class, args);
 	}
 	
-	
+//	
 //	@Bean
 //	public CommandLineRunner demo(UsuarioClienteRest usuRest,
 //			RutaClienteRest rutaRest, ConductoreClienteRest condRest, 
@@ -132,15 +132,6 @@ public class Taller3Application {
 //			cond.setFechaContratacion(new Date(1000000));
 //			condRest.agregarConductor(cond);
 //			
-//			Tmio1SitiosRuta sr = new Tmio1SitiosRuta();
-//			sr.setTmio1Ruta(ruta1);
-//			sr.setTmio1Sitio(sitio1);
-//			Tmio1SitiosRutaPK pk = new Tmio1SitiosRutaPK();
-//			pk.setIdRuta(sr.getTmio1Ruta().getId());
-//			pk.setIdSitio(sr.getTmio1Sitio().getId());
-//			sr.setPlaneID(pk.getIdRuta()+"_"+pk.getIdSitio());
-//			sr.setId(pk);
-//			srRest.agregarSitiosRuta(sr);
 //			
 //		};
 //	}

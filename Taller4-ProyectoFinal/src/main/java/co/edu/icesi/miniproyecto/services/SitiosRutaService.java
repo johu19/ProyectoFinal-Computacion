@@ -47,6 +47,7 @@ public class SitiosRutaService implements ISitiosRutaService {
 	}
 
 	@Override
+	@Transactional
 	public Tmio1SitiosRuta actualizarSitiosRuta(Tmio1SitiosRuta sr) {
 		Tmio1SitiosRuta old = repos.findByPlaneId(sr.getPlaneID()).get(0);
 		repos.delete(old);
